@@ -1,3 +1,4 @@
 data/
 /Pipfile.lock
 .idea/
+app/__pycache__/
