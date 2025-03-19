@@ -1,0 +1,66 @@
+{
+    "publishers": [
+        "Brown"
+    ],
+    "identifiers": {
+        "librarything": [
+            "740808"
+        ]
+    },
+    "subtitle": "a step by step approach",
+    "lc_classifications": [
+        "QA'276.12'B59'1995"
+    ],
+    "latest_revision": 3,
+    "key": "/books/OL20657025M",
+    "authors": [
+        {
+            "key": "/authors/OL35355A"
+        }
+    ],
+    "publish_places": [
+        "Dubuque, IA"
+    ],
+    "subjects": [
+        "Statistics"
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "pagination": "xx, 684 p. ",
+    "source_records": [
+        "marc:marc_laurentian/openlibrary.mrc:222190561:827"
+    ],
+    "title": "Elementary statistics",
+    "notes": {
+        "type": "/type/text",
+        "value": "Bibliogr.\n\n1"
+    },
+    "number_of_pages": 684,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-10-29T08:16:21.607814"
+    },
+    "edition_name": "2d ed.",
+    "isbn_10": [
+        "0697171655"
+    ],
+    "publish_date": "1995",
+    "publish_country": "iau",
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2010-08-18T15:51:25.310345"
+    },
+    "by_statement": "Allan G. Bluman.",
+    "works": [
+        {
+            "key": "/works/OL71848W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "revision": 3
+}

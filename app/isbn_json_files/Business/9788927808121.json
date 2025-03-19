@@ -1,0 +1,88 @@
+{
+    "notes": {
+        "type": "/type/text",
+        "value": "Translation of: Fooled by randomness : the hidden role of chance in life and in the markets.\n\nIncludes bibliographical references (pages 320-339)."
+    },
+    "title": "Haengun e sokchi mara",
+    "subtitle": "purhwaksirhan sidae e sara namn\u016dn t'uja saengjonb\u014fp = Fooled by randomness",
+    "authors": [
+        {
+            "key": "/authors/OL538956A"
+        }
+    ],
+    "publish_date": "2016",
+    "type": {
+        "key": "/type/edition"
+    },
+    "publish_country": "ko",
+    "languages": [
+        {
+            "key": "/languages/kor"
+        }
+    ],
+    "oclc_numbers": [
+        "1040035907"
+    ],
+    "dewey_decimal_class": [
+        "332.6"
+    ],
+    "work_titles": [
+        "Fooled by randomness"
+    ],
+    "other_titles": [
+        "Fooled by randomness"
+    ],
+    "edition_name": "Sin kaej\u014fngp'an",
+    "contributions": [
+        "Yi, K\u014fn, translator",
+        "Sin, Chin-o, editor"
+    ],
+    "subjects": [
+        "Investments",
+        "Chance",
+        "Random variables"
+    ],
+    "by_statement": "Nasim Ik'ollas\u016d T'allep ; Yi K\u014fn omgim ; Sin Chin-o kamsu",
+    "publishers": [
+        "Chungangbooks",
+        "Chungang Ilbo P'\u016dll\u014fs\u016d"
+    ],
+    "publish_places": [
+        "S\u014ful-si"
+    ],
+    "isbn_13": [
+        "9788927808121"
+    ],
+    "isbn_10": [
+        "8927808126"
+    ],
+    "pagination": "350 pages",
+    "ocaid": "haengunesokchima0000tale",
+    "source_records": [
+        "ia:haengunesokchima0000tale",
+        "promise:bwb_daily_pallets_2021-09-14"
+    ],
+    "covers": [
+        12603637
+    ],
+    "local_id": [
+        "urn:bwbsku:P7-BCR-866"
+    ],
+    "key": "/books/OL37024246M",
+    "number_of_pages": 350,
+    "works": [
+        {
+            "key": "/works/OL3295029W"
+        }
+    ],
+    "latest_revision": 4,
+    "revision": 4,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2022-02-02T04:59:21.579229"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-10-31T07:29:12.708307"
+    }
+}

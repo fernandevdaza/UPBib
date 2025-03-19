@@ -1,0 +1,56 @@
+{
+    "title": "Financial Statistics",
+    "authors": [
+        {
+            "key": "/authors/OL2646142A"
+        }
+    ],
+    "publish_date": "October 20, 2003",
+    "publishers": [
+        "Palgrave Macmillan"
+    ],
+    "isbn_13": [
+        "9780116216014"
+    ],
+    "physical_format": "Paperback",
+    "isbn_10": [
+        "0116216018"
+    ],
+    "oclc_numbers": [
+        "617665456"
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "subjects": [
+        "Economic statistics",
+        "Finance",
+        "Social research & statistics",
+        "United Kingdom, Great Britain"
+    ],
+    "source_records": [
+        "bwb:9780116216014",
+        "ia:isbn_9780116216014"
+    ],
+    "ocaid": "isbn_9780116216014",
+    "key": "/books/OL10042864M",
+    "works": [
+        {
+            "key": "/works/OL7932110W"
+        }
+    ],
+    "covers": [
+        14481529
+    ],
+    "number_of_pages": 290,
+    "latest_revision": 6,
+    "revision": 6,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-30T09:38:13.731961"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2023-10-21T19:17:31.176355"
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "publishers": [
+        "Addison-Wesley"
+    ],
+    "identifiers": {
+        "goodreads": [
+            "2107118",
+            "4949195"
+        ],
+        "librarything": [
+            "1406479"
+        ],
+        "amazon": [
+            ""
+        ]
+    },
+    "subtitle": "exploring tomorrow's technology",
+    "isbn_10": [
+        "0201352133",
+        "0201428806"
+    ],
+    "covers": [
+        4606757,
+        3734775,
+        134483
+    ],
+    "lc_classifications": [
+        "QA76.5 .B3652 1999"
+    ],
+    "key": "/books/OL372714M",
+    "authors": [
+        {
+            "key": "/authors/OL19551A"
+        }
+    ],
+    "publish_places": [
+        "Reading, Mass"
+    ],
+    "contributions": [
+        "Ericksen, Linda."
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "pagination": "xxxii, 479 p. :",
+    "source_records": [
+        "marc:marc_records_scriblio_net/part27.dat:83951104:1007",
+        "marc:marc_loc_2016/BooksAll.2016.part27.utf8:26990185:1002",
+        "ia:computerconfluen0000beek",
+        "promise:bwb_daily_pallets_2020-06-04",
+        "promise:bwb_daily_pallets_2020-11-27"
+    ],
+    "title": "Computer confluence",
+    "dewey_decimal_class": [
+        "004"
+    ],
+    "notes": {
+        "type": "/type/text",
+        "value": "Includes bibliographical references and index.\nAccompanied by: Compact guide--web page creation and design by Linda Ericksen (free)."
+    },
+    "number_of_pages": 479,
+    "edition_name": "3rd ed., annotated instructor's ed.",
+    "lccn": [
+        "98034363"
+    ],
+    "subjects": [
+        "Computers",
+        "Information technology"
+    ],
+    "publish_date": "1999",
+    "publish_country": "mau",
+    "by_statement": "George Beekman.",
+    "works": [
+        {
+            "key": "/works/OL51556W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "ocaid": "computerconfluen0000beek",
+    "local_id": [
+        "urn:bwbsku:796-BAA-827",
+        "urn:bwbsku:R1-BAW-185"
+    ],
+    "latest_revision": 11,
+    "revision": 11,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-01T03:28:50.625462"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2023-01-15T12:51:30.984641"
+    }
+}

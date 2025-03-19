@@ -1,0 +1,55 @@
+{
+    "title": "Inquiry into Life",
+    "authors": [
+        {
+            "key": "/authors/OL2639058A"
+        }
+    ],
+    "publish_date": "2016",
+    "type": {
+        "key": "/type/edition"
+    },
+    "isbn_13": [
+        "9781259254161"
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "lc_classifications": [
+        "QH308.2"
+    ],
+    "publishers": [
+        "McGraw-Hill Education"
+    ],
+    "source_records": [
+        "bwb:9781259254161",
+        "promise:bwb_daily_pallets_2023-02-10:P8-BED-094"
+    ],
+    "subjects": [
+        "Biology"
+    ],
+    "full_title": "Inquiry into Life",
+    "local_id": [
+        "urn:bwbsku:P8-BED-094"
+    ],
+    "ocaid": "inquiryintolife0000made_c9s3",
+    "key": "/books/OL34530030M",
+    "number_of_pages": 848,
+    "works": [
+        {
+            "key": "/works/OL2657790W"
+        }
+    ],
+    "latest_revision": 3,
+    "revision": 3,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-05T16:52:59.472023"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-03-21T14:27:25.903212"
+    }
+}

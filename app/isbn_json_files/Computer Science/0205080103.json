@@ -1,0 +1,73 @@
+{
+    "publishers": [
+        "Allyn and Bacon"
+    ],
+    "number_of_pages": 456,
+    "isbn_10": [
+        "0205080103"
+    ],
+    "lc_classifications": [
+        "QA184 .W53 1984"
+    ],
+    "key": "/books/OL3171335M",
+    "authors": [
+        {
+            "key": "/authors/OL897068A"
+        }
+    ],
+    "publish_places": [
+        "Boston"
+    ],
+    "contributions": [
+        "Williams, Gareth, 1937-"
+    ],
+    "pagination": "viii, 456, [64] p. :",
+    "title": "Linear algebra with applications",
+    "dewey_decimal_class": [
+        "512/.5"
+    ],
+    "notes": {
+        "type": "/type/text",
+        "value": "Rev. ed. of: Computational linear algebra with models. 2nd ed. c1978.\n\"Portions of this book first appeared in Mathematics with applications in the management, natural, and social sciences\"--T.p. verso.\nIncludes index."
+    },
+    "identifiers": {
+        "goodreads": [
+            "3730369"
+        ],
+        "librarything": [
+            "2033418"
+        ]
+    },
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "lccn": [
+        "83013523"
+    ],
+    "subjects": [
+        "Algebras, Linear."
+    ],
+    "publish_date": "1984",
+    "publish_country": "mau",
+    "by_statement": "Gareth Williams.",
+    "works": [
+        {
+            "key": "/works/OL258590W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "latest_revision": 5,
+    "revision": 5,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-01T03:28:50.625462"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2023-10-30T06:42:58.107657"
+    }
+}

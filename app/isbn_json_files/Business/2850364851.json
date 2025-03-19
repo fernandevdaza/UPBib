@@ -1,0 +1,92 @@
+{
+    "type": {
+        "key": "/type/edition"
+    },
+    "publish_date": "1997",
+    "publish_country": "fr",
+    "languages": [
+        {
+            "key": "/languages/fre"
+        }
+    ],
+    "oclc_numbers": [
+        "40214015"
+    ],
+    "lc_classifications": [
+        "PE1645C712p1997"
+    ],
+    "dewey_decimal_class": [
+        "423.41"
+    ],
+    "other_titles": [
+        "Robert et Collins :",
+        "Dictionnaire fran\u00e7ais-anglais, anglais- fran\u00e7ais"
+    ],
+    "series": [
+        "Les pratiques",
+        "Pratiques"
+    ],
+    "links": [
+        {
+            "url": "http://catalogue.bnf.fr/ark:/12148/cb36175964r",
+            "title": "Notice et cote du catalogue de la Biblioth\u00e8que nationale de France"
+        }
+    ],
+    "subjects": [
+        "Fran\u00e7ais (Langue)",
+        "Dictionnaires anglais",
+        "Anglais (Langue)",
+        "Dictionnaires fran\u00e7ais",
+        "Fran\u00e7ais (langue)",
+        "Dictionnaire anglais",
+        "Anglais (langue)",
+        "Dictionnaire fran\u00e7ais",
+        "Dictionnaire multilingue"
+    ],
+    "title": "Le Robert & Collins",
+    "subtitle": "dictionnaire fran\u00e7ais-anglais, anglais- fran\u00e7ais",
+    "publishers": [
+        "Dictionnaire Le Robert",
+        "HarperCollins Publishers"
+    ],
+    "publish_places": [
+        "Paris",
+        "Glasgow"
+    ],
+    "isbn_10": [
+        "2850364851"
+    ],
+    "isbn_13": [
+        "9782850364853"
+    ],
+    "pagination": "xv, 877 pages",
+    "number_of_pages": 877,
+    "ocaid": "lerobertcollinsd0000unse_h2f7",
+    "source_records": [
+        "ia:lerobertcollinsd0000unse_h2f7",
+        "promise:bwb_daily_pallets_2021-09-14"
+    ],
+    "full_title": "Le Robert & Collins dictionnaire fran\u00e7ais-anglais, anglais- fran\u00e7ais",
+    "covers": [
+        12634435
+    ],
+    "works": [
+        {
+            "key": "/works/OL259619W"
+        }
+    ],
+    "key": "/books/OL37063434M",
+    "local_id": [
+        "urn:bwbsku:P7-BZP-349"
+    ],
+    "latest_revision": 3,
+    "revision": 3,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2022-02-17T04:37:53.024510"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2025-01-25T16:42:33.722468"
+    }
+}

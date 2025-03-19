@@ -1,0 +1,55 @@
+{
+    "title": "Census 1981",
+    "authors": [
+        {
+            "key": "/authors/OL10510895A"
+        },
+        {
+            "key": "/authors/OL10510313A"
+        }
+    ],
+    "publish_date": "1983",
+    "type": {
+        "key": "/type/edition"
+    },
+    "isbn_13": [
+        "9780116909299"
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "lc_classifications": [
+        "HA1124 1981"
+    ],
+    "pagination": "xxvii, 282",
+    "publishers": [
+        "Stationery Office, The"
+    ],
+    "source_records": [
+        "bwb:9780116909299"
+    ],
+    "subjects": [
+        "Great britain, census",
+        "Great britain, population"
+    ],
+    "full_title": "Census 1981",
+    "ocaid": "isbn_0116909293",
+    "key": "/books/OL38635269M",
+    "works": [
+        {
+            "key": "/works/OL28230198W"
+        }
+    ],
+    "latest_revision": 2,
+    "revision": 2,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2022-07-17T07:09:49.732853"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-03-21T16:47:19.350228"
+    }
+}

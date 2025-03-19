@@ -1,0 +1,91 @@
+{
+    "description": {
+        "type": "/type/text",
+        "value": "T\u00e9moignage d'un v\u00e9t\u00e9ran du Vi\u00eat-nam qui a servi de sc\u00e9nario v\u00e9ridique au film d'Olivier Stone du m\u00eame titre."
+    },
+    "title": "N\u00e9 un quatre juillet",
+    "authors": [
+        {
+            "key": "/authors/OL1236434A"
+        }
+    ],
+    "publish_date": "1990",
+    "type": {
+        "key": "/type/edition"
+    },
+    "publish_country": "fr",
+    "languages": [
+        {
+            "key": "/languages/fre"
+        }
+    ],
+    "oclc_numbers": [
+        "417557318"
+    ],
+    "lc_classifications": [
+        "DS559.5 K6814"
+    ],
+    "dewey_decimal_class": [
+        "973.92"
+    ],
+    "links": [
+        {
+            "url": "http://catalogue.bnf.fr/ark:/12148/cb350759215",
+            "title": "Notice et cote du catalogue de la Biblioth\u00e8que nationale de France"
+        }
+    ],
+    "contributions": [
+        "Lebec, G\u00e9rard, 19..- ..."
+    ],
+    "subject_people": [
+        "Guerre du Vi\u00eat-nam (1961-1975)"
+    ],
+    "subjects": [
+        "Guerre du Viet-Nam (1961-1975)",
+        "R\u00e9cits personnels am\u00e9ricains",
+        "Ron Kovic",
+        "Guerre du Vi\u00eat-nam, 1961-1975"
+    ],
+    "by_statement": "Ron Kovic ; trad. de l'am\u00e9ricain par G\u00e9rard Lebec",
+    "publishers": [
+        "Calmann-L\u00e9vy"
+    ],
+    "publish_places": [
+        "Paris"
+    ],
+    "isbn_10": [
+        "2702118178"
+    ],
+    "isbn_13": [
+        "9782702118177"
+    ],
+    "pagination": "208 pages",
+    "ocaid": "neunquatrejuille0000kovi",
+    "source_records": [
+        "ia:neunquatrejuille0000kovi",
+        "promise:bwb_daily_pallets_2020-11-19"
+    ],
+    "covers": [
+        10790668
+    ],
+    "local_id": [
+        "urn:bwbsku:KO-013-542"
+    ],
+    "key": "/books/OL32128619M",
+    "number_of_pages": 208,
+    "works": [
+        {
+            "key": "/works/OL5367577W"
+        }
+    ],
+    "latest_revision": 4,
+    "revision": 4,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2021-03-27T16:05:55.254887"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-01-18T02:42:05.573905"
+    }
+}

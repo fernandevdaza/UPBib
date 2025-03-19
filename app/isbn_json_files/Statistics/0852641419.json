@@ -1,0 +1,94 @@
+{
+    "publishers": [
+        "Griffin"
+    ],
+    "table_of_contents": [
+        {
+            "level": 0,
+            "label": "",
+            "title": "v. 1: Distribution theory.",
+            "pagenum": ""
+        }
+    ],
+    "isbn_10": [
+        "0852641419"
+    ],
+    "covers": [
+        4392696
+    ],
+    "lc_classifications": [
+        "QA276 .K4262"
+    ],
+    "key": "/books/OL4366913M",
+    "authors": [
+        {
+            "key": "/authors/OL121414A"
+        }
+    ],
+    "ocaid": "advancedtheoryof0001kend",
+    "publish_places": [
+        "London"
+    ],
+    "contributions": [
+        "Stuart, Alan, 1922- joint author."
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "pagination": "v.   ",
+    "source_records": [
+        "amazon:0852641419",
+        "ia:advancedtheoryof0001kend",
+        "marc:marc_loc_2016/BooksAll.2016.part11.utf8:165991516:781",
+        "marc:harvard_bibliographic_metadata/ab.bib.01.20150123.full.mrc:76077903:1067"
+    ],
+    "title": "The advanced theory of statistics",
+    "dewey_decimal_class": [
+        "519"
+    ],
+    "notes": {
+        "type": "/type/text",
+        "value": "Includes bibliographies."
+    },
+    "identifiers": {
+        "librarything": [
+            "9446286"
+        ],
+        "goodreads": [
+            "3507556"
+        ]
+    },
+    "edition_name": "3rd ed.",
+    "lccn": [
+        "78467813"
+    ],
+    "subjects": [
+        "Mathematical statistics."
+    ],
+    "publish_date": "1969",
+    "publish_country": "enk",
+    "by_statement": "by Maurice G. Kendall and Alan Stuart.",
+    "works": [
+        {
+            "key": "/works/OL1202737W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "oclc_numbers": [
+        "80139"
+    ],
+    "latest_revision": 10,
+    "revision": 10,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-01T03:28:50.625462"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-12-18T07:31:23.403287"
+    }
+}

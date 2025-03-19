@@ -1,0 +1,51 @@
+{
+    "title": "Guerrilla Warfare",
+    "authors": [
+        {
+            "key": "/authors/OL14370A"
+        }
+    ],
+    "publish_date": "Jan 07, 2013",
+    "publishers": [
+        "CreateSpace Independent Publishing Platform"
+    ],
+    "source_records": [
+        "amazon:1481927663",
+        "promise:bwb_daily_pallets_2023-05-17:P8-CJH-399",
+        "bwb:9781481927666"
+    ],
+    "covers": [
+        8443352
+    ],
+    "isbn_13": [
+        "9781481927666"
+    ],
+    "full_title": "Guerrilla Warfare",
+    "isbn_10": [
+        "1481927663"
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "local_id": [
+        "urn:bwbsku:P8-CJH-399"
+    ],
+    "ocaid": "guerrillawarfare0000cheg",
+    "key": "/books/OL26790048M",
+    "number_of_pages": 56,
+    "works": [
+        {
+            "key": "/works/OL63448W"
+        }
+    ],
+    "latest_revision": 6,
+    "revision": 6,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2019-03-16T21:45:14.186549"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-09-20T10:30:50.745066"
+    }
+}

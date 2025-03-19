@@ -1,0 +1,62 @@
+{
+    "title": "Eat That Frog!",
+    "subtitle": "21 Great Ways to Stop Procrastinating and Get More Done in Less Time",
+    "authors": [
+        {
+            "key": "/authors/OL327356A"
+        }
+    ],
+    "publish_date": "2006",
+    "type": {
+        "key": "/type/edition"
+    },
+    "isbn_13": [
+        "9781626567337"
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "pagination": "144",
+    "publishers": [
+        "Berrett-Koehler Publishers, Incorporated"
+    ],
+    "source_records": [
+        "bwb:9781626567337",
+        "promise:bwb_daily_pallets_2022-03-17",
+        "ia:eatthatfrog21gre0000bria"
+    ],
+    "subjects": [
+        "Procrastination",
+        "Time management"
+    ],
+    "weight": "0.568",
+    "full_title": "Eat That Frog! 21 Great Ways to Stop Procrastinating and Get More Done in Less Time",
+    "local_id": [
+        "urn:bwbsku:P7-DGO-217"
+    ],
+    "ocaid": "eatthatfrog21gre0000bria",
+    "key": "/books/OL38031752M",
+    "works": [
+        {
+            "key": "/works/OL2392324W"
+        }
+    ],
+    "covers": [
+        14815308,
+        14633419,
+        14461313
+    ],
+    "number_of_pages": 156,
+    "latest_revision": 7,
+    "revision": 7,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2022-05-26T03:46:12.891352"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-09-11T13:39:48.175636"
+    }
+}

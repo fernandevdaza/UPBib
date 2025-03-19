@@ -1,0 +1,84 @@
+{
+    "description": {
+        "type": "/type/text",
+        "value": "Ben shu nei rong bao kuo:zhuo you cheng xiao shi ke yi xue hui de, Zhang wo zi ji de shi jian, Wo neng gong xian shen me, Ru he fa hui ren de zhang chu, Yao shi you xian, Jue ce de yao su, You xiao de jue ce deng."
+    },
+    "notes": {
+        "type": "/type/text",
+        "value": "Bing lie ti ming:Effective executive.\n\nYou Peter F. Drucker shou quan chu ban."
+    },
+    "title": "Zhuo you cheng xiao de guan li zhe",
+    "subtitle": "Zhen zang ban = The effective executive",
+    "authors": [
+        {
+            "key": "/authors/OL4345625A"
+        }
+    ],
+    "publish_date": "2009",
+    "other_titles": [
+        "Effective executive"
+    ],
+    "publishers": [
+        "Ji xie gong ye chu ban she"
+    ],
+    "isbn_10": [
+        "7111280717"
+    ],
+    "series": [
+        "De lu ke guan li jing dian -- 7",
+        "De lu ke guan li jing dian"
+    ],
+    "covers": [
+        8539627
+    ],
+    "physical_format": "Zhuan zhu.",
+    "ocaid": "zhuoyouchengxiao0007pete",
+    "publish_places": [
+        "Beijing"
+    ],
+    "contributions": [
+        "Xu, Shixiang, Yi"
+    ],
+    "languages": [
+        {
+            "key": "/languages/chi"
+        }
+    ],
+    "pagination": "35,167 p. ;",
+    "source_records": [
+        "ia:zhuoyouchengxiao0007pete"
+    ],
+    "isbn_13": [
+        "9787111280712"
+    ],
+    "edition_name": "Di 1 ban",
+    "subjects": [
+        "Qi ye guan li",
+        "Guan li xue"
+    ],
+    "publish_country": "cc",
+    "by_statement": "(mei)Bi deDe lu ke(Peter F. Drucker)Zhu ; Xu shi xiang yi",
+    "oclc_numbers": [
+        "951850939"
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "key": "/books/OL26850762M",
+    "number_of_pages": 35167,
+    "works": [
+        {
+            "key": "/works/OL272920W"
+        }
+    ],
+    "latest_revision": 4,
+    "revision": 4,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2019-04-16T10:47:21.578065"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2023-11-05T22:37:27.178707"
+    }
+}

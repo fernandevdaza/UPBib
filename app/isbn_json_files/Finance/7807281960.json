@@ -1,0 +1,50 @@
+{
+    "identifiers": {
+        "goodreads": [
+            "702386"
+        ]
+    },
+    "title": "Freakonomics (in Simplified Chinese Characters)",
+    "authors": [
+        {
+            "key": "/authors/OL1728754A"
+        }
+    ],
+    "publish_date": "2006",
+    "publishers": [
+        "Guang Dong Jing Ji Publishing Company"
+    ],
+    "isbn_13": [
+        "9787807281962"
+    ],
+    "covers": [
+        5244301
+    ],
+    "physical_format": "Paperback",
+    "isbn_10": [
+        "7807281960"
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "ocaid": "moguijingjixueji0000levi",
+    "source_records": [
+        "ia:moguijingjixueji0000levi"
+    ],
+    "key": "/books/OL13100953M",
+    "works": [
+        {
+            "key": "/works/OL278022W"
+        }
+    ],
+    "latest_revision": 8,
+    "revision": 8,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-30T20:50:18.033121"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-11-01T06:08:41.800630"
+    }
+}

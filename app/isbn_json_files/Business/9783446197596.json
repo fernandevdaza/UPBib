@@ -1,0 +1,64 @@
+{
+    "identifiers": {
+        "librarything": [
+            "8778"
+        ]
+    },
+    "title": "Power. Die 48 Gesetze der Macht. Ein Joost- Elffers- Buch.",
+    "authors": [
+        {
+            "key": "/authors/OL236414A"
+        }
+    ],
+    "publish_date": "August 1, 1999",
+    "publishers": [
+        "Carl Hanser"
+    ],
+    "weight": "2.2 pounds",
+    "covers": [
+        1007858
+    ],
+    "physical_format": "Hardcover",
+    "isbn_13": [
+        "9783446197596"
+    ],
+    "languages": [
+        {
+            "key": "/languages/ger"
+        }
+    ],
+    "first_sentence": {
+        "type": "/type/text",
+        "value": "Nicolas Fouquet, Louis XIV's finance minister in the first years of his reign, was a generous man who loved lavish parties, pretty women, and poetry."
+    },
+    "isbn_10": [
+        "3446197591"
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "physical_dimensions": "9.4 x 7 x 1.4 inches",
+    "local_id": [
+        "urn:bwbsku:T2-FPL-004"
+    ],
+    "source_records": [
+        "promise:bwb_daily_pallets_2023-01-18:T2-FPL-004"
+    ],
+    "ocaid": "powerdie48gesetz0000robe",
+    "key": "/books/OL9036414M",
+    "works": [
+        {
+            "key": "/works/OL1968368W"
+        }
+    ],
+    "latest_revision": 8,
+    "revision": 8,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-30T09:38:13.731961"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-03-27T05:20:27.176967"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": {
+        "key": "/type/edition"
+    },
+    "authors": [
+        {
+            "key": "/authors/OL7842407A"
+        }
+    ],
+    "isbn_10": [
+        "0333126742"
+    ],
+    "isbn_13": [
+        "9780333126745"
+    ],
+    "local_id": [
+        "urn:bwbsku:O7-DMZ-476"
+    ],
+    "publish_date": "1979-01-01",
+    "publishers": [
+        "Macmillan & Co. Ltd."
+    ],
+    "source_records": [
+        "promise:bwb_daily_pallets_2021-09-14"
+    ],
+    "title": "Collected Writings",
+    "full_title": "Collected Writings",
+    "works": [
+        {
+            "key": "/works/OL20706010W"
+        }
+    ],
+    "key": "/books/OL43235153M",
+    "latest_revision": 1,
+    "revision": 1,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2022-12-07T22:23:04.736238"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-12-07T22:23:04.736238"
+    }
+}

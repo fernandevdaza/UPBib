@@ -1,0 +1,114 @@
+{
+    "number_of_pages": 319,
+    "subtitle": "a natural history",
+    "weight": "2.1 pounds",
+    "covers": [
+        6526528,
+        6526532
+    ],
+    "local_id": [
+        "urn:phillips:31867000082961",
+        "urn:sfpl:31223004104734",
+        "urn:sfpl:31223900254559",
+        "urn:scms:0188600020500",
+        "urn:bwbsku:O8-CIJ-271",
+        "urn:nuls:31786000450657"
+    ],
+    "lc_classifications": [
+        "QH366.2 .A87 1979b",
+        "QH366.2.A87 1979b"
+    ],
+    "ocaid": "lifeonearthnatur00atte",
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "source_records": [
+        "marc:marc_records_scriblio_net/part11.dat:126817979:666",
+        "marc:CollingswoodLibraryMarcDump10-27-2008/Collingswood.out:3893948:1146",
+        "marc:marc_ithaca_college/ic_marc.mrc:42854451:700",
+        "ia:lifeonearthnatur00atte",
+        "amazon:0316057452:2-af:4290104979:224731",
+        "marc:marc_openlibraries_phillipsacademy/PANO_FOR_IA_05072019.mrc:67104536:968",
+        "marc:marc_openlibraries_sanfranciscopubliclibrary/sfpl_chq_2018_12_24_run01.mrc:18981942:1606",
+        "marc:marc_loc_2016/BooksAll.2016.part12.utf8:24597255:660",
+        "marc:marc_scms/20220805_ADAM_MARC_records.mrc:10271149:2051",
+        "promise:bwb_daily_pallets_2022-08-02",
+        "marc:marc_columbia/Columbia-extract-20221130-001.mrc:91641894:1238",
+        "bwb:9780316057455",
+        "ia:lifeonearthnatur0000atte_u7j4",
+        "marc:marc_nuls/NULS_PHC_180925.mrc:77256335:891",
+        "marc:harvard_bibliographic_metadata/ab.bib.00.20150123.full.mrc:788044278:712"
+    ],
+    "title": "Life on Earth",
+    "edition_name": "1st American ed.",
+    "subjects": [
+        "Evolution (Biology)",
+        "Zoology -- Miscellanea"
+    ],
+    "publish_country": "mau",
+    "by_statement": "David Attenborough.",
+    "type": {
+        "key": "/type/edition"
+    },
+    "physical_dimensions": "10.5 x 7.2 x 1 inches",
+    "publishers": [
+        "Little, Brown"
+    ],
+    "ia_box_id": [
+        "IA107515"
+    ],
+    "physical_format": "Hardcover",
+    "key": "/books/OL4436302M",
+    "authors": [
+        {
+            "key": "/authors/OL231295A"
+        }
+    ],
+    "publish_places": [
+        "Boston"
+    ],
+    "pagination": "319 p. :",
+    "classifications": {},
+    "lccn": [
+        "79090108"
+    ],
+    "notes": "Includes index.",
+    "identifiers": {
+        "librarything": [
+            "132179"
+        ],
+        "goodreads": [
+            "1027910"
+        ]
+    },
+    "isbn_13": [
+        "9780316057455"
+    ],
+    "dewey_decimal_class": [
+        "575"
+    ],
+    "isbn_10": [
+        "0316057452"
+    ],
+    "publish_date": "1981",
+    "works": [
+        {
+            "key": "/works/OL261056W"
+        }
+    ],
+    "oclc_numbers": [
+        "5829591"
+    ],
+    "latest_revision": 25,
+    "revision": 25,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-01T03:28:50.625462"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-02-23T18:22:38.110261"
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "type": {
+        "key": "/type/edition"
+    },
+    "publish_date": "2010",
+    "publish_country": "mau",
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "oclc_numbers": [
+        "502141979"
+    ],
+    "other_titles": [
+        "Biology",
+        "Miller and Levine biology"
+    ],
+    "edition_name": "New York ed.",
+    "notes": {
+        "type": "/type/text",
+        "value": "Includes glossary and index.\n\nGrades 9-12."
+    },
+    "authors": [
+        {
+            "key": "/authors/OL21298A"
+        },
+        {
+            "key": "/authors/OL614366A"
+        }
+    ],
+    "contributions": [
+        "Pearson/Prentice Hall"
+    ],
+    "subjects": [
+        "Biology",
+        "Textbooks",
+        "Science",
+        "Study and teaching (Secondary)",
+        "Sciences",
+        "\u00c9tude et enseignement (Secondaire)"
+    ],
+    "title": "Miller & Levine Biology",
+    "by_statement": "Kenneth R. Miller, Joseph Levine",
+    "publishers": [
+        "Pearson Prentice Hall"
+    ],
+    "publish_places": [
+        "Boston, MA"
+    ],
+    "isbn_10": [
+        "0133693430",
+        "0133693449"
+    ],
+    "isbn_13": [
+        "9780133693430",
+        "9780133693447"
+    ],
+    "pagination": "T26, xxii, 1034, DOL 64, A24, G34, I-19, C3 pages",
+    "number_of_pages": 1034,
+    "ocaid": "millerlevinebiol0000unse_o7a7",
+    "source_records": [
+        "ia:millerlevinebiol0000unse_o7a7",
+        "promise:bwb_daily_pallets_2022-07-28"
+    ],
+    "full_title": "Miller & Levine Biology",
+    "covers": [
+        12945839
+    ],
+    "works": [
+        {
+            "key": "/works/OL277185W"
+        }
+    ],
+    "key": "/books/OL39821931M",
+    "local_id": [
+        "urn:bwbsku:W7-CLL-030"
+    ],
+    "latest_revision": 3,
+    "revision": 3,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2022-10-13T05:09:56.933631"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2023-11-05T23:14:54.432266"
+    }
+}

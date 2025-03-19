@@ -1,0 +1,98 @@
+{
+    "other_titles": [
+        "No space, no choice, no jobs",
+        "Taking aim at the brand bullies"
+    ],
+    "publishers": [
+        "Picador"
+    ],
+    "number_of_pages": 490,
+    "subtitle": "taking aim at the brand bullies",
+    "isbn_10": [
+        "0312203438"
+    ],
+    "dewey_decimal_class": [
+        "338.8/8"
+    ],
+    "covers": [
+        175602
+    ],
+    "lc_classifications": [
+        "HD2755.5 .K575 2000b"
+    ],
+    "latest_revision": 7,
+    "key": "/books/OL6900087M",
+    "authors": [
+        {
+            "key": "/authors/OL1510013A"
+        }
+    ],
+    "publish_places": [
+        "New York"
+    ],
+    "uri_descriptions": [
+        "Contributor biographical information",
+        "Publisher description"
+    ],
+    "edition_name": "1st Picador USA ed.",
+    "pagination": "xxi, 490 p. :",
+    "source_records": [
+        "marc:marc_records_scriblio_net/part01.dat:115075974:1155",
+        "marc:marc_loc_updates/v35.i19.records.utf8:261830:1162"
+    ],
+    "title": "No logo",
+    "lccn": [
+        "00710214"
+    ],
+    "notes": {
+        "type": "/type/text",
+        "value": "Includes bibliographical references (p. [479]-481) and index."
+    },
+    "identifiers": {
+        "goodreads": [
+            "1427339"
+        ],
+        "librarything": [
+            "8244"
+        ]
+    },
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-01T03:28:50.625462"
+    },
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "url": [
+        "http://www.loc.gov/catdir/bios/hol054/00710214.html",
+        "http://www.loc.gov/catdir/description/hol042/00710214.html"
+    ],
+    "subjects": [
+        "International business enterprises -- Political aspects",
+        "International business enterprises -- Public opinion",
+        "Brand name products -- Political aspects",
+        "Brand name products -- Public opinion"
+    ],
+    "publish_date": "2000",
+    "publish_country": "nyu",
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2010-08-04T22:16:35.519240"
+    },
+    "by_statement": "Naomi Klein.",
+    "works": [
+        {
+            "key": "/works/OL6017245W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "uris": [
+        "http://www.loc.gov/catdir/bios/hol054/00710214.html",
+        "http://www.loc.gov/catdir/description/hol042/00710214.html"
+    ],
+    "revision": 7
+}

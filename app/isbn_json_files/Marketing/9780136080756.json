@@ -1,0 +1,64 @@
+{
+    "publishers": [
+        "Pearson Education, Limited"
+    ],
+    "source_records": [
+        "bwb:9780136080756",
+        "ia:studyguideprinci0000tute",
+        "amazon:0136080758",
+        "promise:bwb_daily_pallets_2021-04-12",
+        "idb:9780136080756"
+    ],
+    "title": "Principles of Marketing",
+    "number_of_pages": 515,
+    "isbn_13": [
+        "9780136080756"
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "full_title": "Principles of Marketing",
+    "lc_classifications": [
+        ""
+    ],
+    "publish_date": "2009",
+    "key": "/books/OL29011090M",
+    "authors": [
+        {
+            "key": "/authors/OL216799A"
+        },
+        {
+            "key": "/authors/OL1430543A"
+        }
+    ],
+    "works": [
+        {
+            "key": "/works/OL1807517W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "subjects": [
+        "Marketing"
+    ],
+    "covers": [
+        12166579
+    ],
+    "ocaid": "studyguideprinci0000tute",
+    "local_id": [
+        "urn:bwbsku:KL-139-021"
+    ],
+    "latest_revision": 8,
+    "revision": 8,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2020-08-20T16:55:36.792947"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-01-03T17:28:55.836745"
+    }
+}

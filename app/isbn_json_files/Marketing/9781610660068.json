@@ -1,0 +1,52 @@
+{
+    "publishers": [
+        "Writers of the Round Table Press"
+    ],
+    "source_records": [
+        "marc:marc_loc_2016/BooksAll.2016.part38.utf8:157911407:1460",
+        "promise:bwb_daily_pallets_2022-12-13",
+        "ia:longtailfromsmar0000ande"
+    ],
+    "title": "The Long Tail From Smartercomics",
+    "lccn": [
+        "2010942329"
+    ],
+    "identifiers": {},
+    "covers": [
+        7704010
+    ],
+    "isbn_13": [
+        "9781610660068"
+    ],
+    "lc_classifications": [
+        "HF5415.127 .A543 2011"
+    ],
+    "publish_date": "2011",
+    "key": "/books/OL26088814M",
+    "works": [
+        {
+            "key": "/works/OL4091759W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "local_id": [
+        "urn:bwbsku:P8-BGB-705"
+    ],
+    "ocaid": "longtailfromsmar0000ande",
+    "oclc_numbers": [
+        "668195636"
+    ],
+    "number_of_pages": 50,
+    "latest_revision": 6,
+    "revision": 6,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2016-10-14T14:37:25.908296"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2023-08-01T04:39:34.368246"
+    }
+}

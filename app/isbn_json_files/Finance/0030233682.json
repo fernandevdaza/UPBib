@@ -1,0 +1,55 @@
+{
+    "publishers": [
+        "South-Western Pub"
+    ],
+    "subtitle": "Theory and Practic (Study Guide, 9th Edition)",
+    "weight": "2.4 pounds",
+    "covers": [
+        4938332,
+        4549708
+    ],
+    "physical_format": "Paperback",
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2011-04-30T09:16:45.524994"
+    },
+    "latest_revision": 4,
+    "key": "/books/OL9225849M",
+    "authors": [
+        {
+            "key": "/authors/OL244414A"
+        }
+    ],
+    "subjects": [
+        "Budgeting & financial management",
+        "Finance",
+        "Business & Economics",
+        "Business/Economics"
+    ],
+    "edition_name": "9th Study edition",
+    "title": "Financial Management",
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-30T09:38:13.731961"
+    },
+    "isbn_13": [
+        "9780030233685"
+    ],
+    "isbn_10": [
+        "0030233682"
+    ],
+    "publish_date": "August 1998",
+    "oclc_numbers": [
+        "43685279"
+    ],
+    "works": [
+        {
+            "key": "/works/OL2024238W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "physical_dimensions": "11 x 8.5 x 1 inches",
+    "revision": 4
+}

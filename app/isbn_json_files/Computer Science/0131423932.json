@@ -1,0 +1,92 @@
+{
+    "publishers": [
+        "Prentice Hall"
+    ],
+    "subtitle": "Alan Evans, Kendall Martin, Mary Anne Poatsy.",
+    "isbn_10": [
+        "0131423932"
+    ],
+    "covers": [
+        1108022
+    ],
+    "lc_classifications": [
+        "QA76.5 .E9195 2004",
+        "QA76.5 .E9195 2005"
+    ],
+    "key": "/books/OL3679803M",
+    "authors": [
+        {
+            "key": "/authors/OL4766221A"
+        }
+    ],
+    "ocaid": "technologyinacti0000evan_r7z8",
+    "publish_places": [
+        "Upper Saddle River, N.J"
+    ],
+    "contributions": [
+        "Martin, Kendall E.",
+        "Poatsy, Mary Anne."
+    ],
+    "lccn": [
+        "2003022578"
+    ],
+    "uri_descriptions": [
+        "Table of contents"
+    ],
+    "languages": [
+        {
+            "key": "/languages/eng"
+        }
+    ],
+    "pagination": "p. cm.",
+    "source_records": [
+        "marc:marc_records_scriblio_net/part14.dat:144060345:764",
+        "marc:marc_loc_updates/v36.i50.records.utf8:3504956:884",
+        "marc:marc_loc_updates/v37.i05.records.utf8:3936136:895",
+        "marc:marc_loc_updates/v36.i34.records.utf8:6101476:874",
+        "ia:technologyinacti0000evan_r7z8",
+        "marc:marc_loc_2016/BooksAll.2016.part30.utf8:174992495:882"
+    ],
+    "title": "Technology in action",
+    "url": [
+        "http://www.loc.gov/catdir/toc/ecip0410/2003022578.html"
+    ],
+    "identifiers": {
+        "goodreads": [
+            "3613937"
+        ],
+        "librarything": [
+            "1542049"
+        ]
+    },
+    "edition_name": "Complete ed.",
+    "dewey_decimal_class": [
+        "004.16"
+    ],
+    "subjects": [
+        "Microcomputers"
+    ],
+    "publish_date": "2004",
+    "publish_country": "nju",
+    "works": [
+        {
+            "key": "/works/OL6031175W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "uris": [
+        "http://www.loc.gov/catdir/toc/ecip0410/2003022578.html"
+    ],
+    "latest_revision": 13,
+    "revision": 13,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-01T03:28:50.625462"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2020-12-07T23:50:05.130137"
+    }
+}

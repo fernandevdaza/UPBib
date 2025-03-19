@@ -1,0 +1,63 @@
+{
+    "publishers": [
+        "Editions Gallimard"
+    ],
+    "identifiers": {
+        "goodreads": [
+            "21124"
+        ],
+        "librarything": [
+            "7846699"
+        ]
+    },
+    "weight": "7.8 ounces",
+    "covers": [
+        966740
+    ],
+    "physical_format": "Mass Market Paperback",
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2010-08-10T10:53:52.700051"
+    },
+    "latest_revision": 6,
+    "key": "/books/OL8837476M",
+    "authors": [
+        {
+            "key": "/authors/OL63285A"
+        }
+    ],
+    "subjects": [
+        "Other prose: from c 1900 -",
+        "General",
+        "Foreign Language - Dictionaries / Phrase Books",
+        "Fiction"
+    ],
+    "isbn_13": [
+        "9782070323517"
+    ],
+    "title": "Le Deuxieme Sexe Tome 1",
+    "number_of_pages": 408,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-30T08:14:56.482104"
+    },
+    "languages": [
+        {
+            "key": "/languages/fre"
+        }
+    ],
+    "isbn_10": [
+        "207032351X"
+    ],
+    "publish_date": "November 1999",
+    "works": [
+        {
+            "key": "/works/OL767824W"
+        }
+    ],
+    "type": {
+        "key": "/type/edition"
+    },
+    "physical_dimensions": "7 x 4.2 x 0.8 inches",
+    "revision": 6
+}

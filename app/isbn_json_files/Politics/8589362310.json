@@ -1,0 +1,59 @@
+{
+    "publishers": [
+        "Francis"
+    ],
+    "physical_format": "Paperback",
+    "title": "Cara, Cad\u00ea Meu Pa\u00eds?",
+    "identifiers": {
+        "librarything": [
+            "2201302"
+        ]
+    },
+    "edition_name": "1 edition",
+    "languages": [
+        {
+            "key": "/languages/por"
+        }
+    ],
+    "publish_date": "2004",
+    "key": "/books/OL9165850M",
+    "type": {
+        "key": "/type/edition"
+    },
+    "isbn_10": [
+        "8589362310"
+    ],
+    "isbn_13": [
+        "9788589362313"
+    ],
+    "oclc_numbers": [
+        "61762737"
+    ],
+    "ocaid": "caracadeomeupais0000moor",
+    "classifications": {},
+    "works": [
+        {
+            "key": "/works/OL1806448W"
+        }
+    ],
+    "covers": [
+        12058569
+    ],
+    "source_records": [
+        "ia:caracadeomeupais0000moor",
+        "promise:bwb_daily_pallets_2021-06-03"
+    ],
+    "local_id": [
+        "urn:bwbsku:W6-BMS-473"
+    ],
+    "latest_revision": 7,
+    "revision": 7,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-30T09:38:13.731961"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-12-08T08:41:25.866008"
+    }
+}

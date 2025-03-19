@@ -1,0 +1,84 @@
+{
+    "type": {
+        "key": "/type/edition"
+    },
+    "publish_date": "2011",
+    "publish_country": "cc",
+    "languages": [
+        {
+            "key": "/languages/chi"
+        }
+    ],
+    "authors": [
+        {
+            "key": "/authors/OL41878A"
+        }
+    ],
+    "oclc_numbers": [
+        "878872681"
+    ],
+    "dewey_decimal_class": [
+        "891.73"
+    ],
+    "work_titles": [
+        "Doktor Zhivago"
+    ],
+    "other_titles": [
+        "Doktor Zhivago"
+    ],
+    "edition_name": "Di 1ban.",
+    "notes": {
+        "type": "/type/text",
+        "value": "Translation from the Russian of: Doktor Zhivago.\n\nIn simplified Chinese script."
+    },
+    "contributions": [
+        "Zhao, Tengfei",
+        "Cao, Wenjing"
+    ],
+    "subjects": [
+        "War stories",
+        "Russian fiction",
+        "Translations into Chinese"
+    ],
+    "title": "Riwage yi sheng",
+    "by_statement": "Bao Pasijie'ernake zhu ; Zhao Tengfei, CaoWenjing yi",
+    "publishers": [
+        "Feng huang chu ban she"
+    ],
+    "publish_places": [
+        "Nanjing"
+    ],
+    "isbn_13": [
+        "9787550602526"
+    ],
+    "isbn_10": [
+        "7550602522"
+    ],
+    "pagination": "590 pages",
+    "number_of_pages": 590,
+    "ocaid": "riwageyisheng0000past",
+    "source_records": [
+        "ia:riwageyisheng0000past",
+        "amazon:7550602522"
+    ],
+    "full_title": "Riwage yi sheng",
+    "covers": [
+        12713388
+    ],
+    "works": [
+        {
+            "key": "/works/OL258301W"
+        }
+    ],
+    "key": "/books/OL36620498M",
+    "latest_revision": 5,
+    "revision": 5,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-01T21:59:54.237272"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-10-30T13:02:10.963912"
+    }
+}

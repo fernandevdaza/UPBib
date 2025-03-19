@@ -1,0 +1,70 @@
+{
+    "type": {
+        "key": "/type/edition"
+    },
+    "publish_date": "2000",
+    "publish_country": "ru",
+    "languages": [
+        {
+            "key": "/languages/rus"
+        }
+    ],
+    "lccn": [
+        "2002509530"
+    ],
+    "authors": [
+        {
+            "key": "/authors/OL345358A"
+        }
+    ],
+    "lc_classifications": [
+        "PR9199.3.H3 W4917 2000"
+    ],
+    "work_titles": [
+        "Wheels"
+    ],
+    "contributions": [
+        "Kudri\ufe20a\ufe21vt\ufe20s\ufe21eva, T. A. (Tat\u02b9i\ufe20a\ufe21na Alekseevna)"
+    ],
+    "title": "Kolesa",
+    "by_statement": "Artur Khe\u012dli ; [perevod c angli\u012dskogo T. Kudri\ufe20a\ufe21vt\ufe20s\ufe21evo\u012d i V. Kotelkina]",
+    "publishers": [
+        "AST"
+    ],
+    "publish_places": [
+        "Moskva"
+    ],
+    "isbn_10": [
+        "5237013198"
+    ],
+    "pagination": "475 p.",
+    "number_of_pages": 475,
+    "source_records": [
+        "marc:marc_loc_2016/BooksAll.2016.part30.utf8:123538586:645",
+        "ia:kolesa0000hail",
+        "promise:bwb_daily_pallets_2021-05-14"
+    ],
+    "works": [
+        {
+            "key": "/works/OL2475122W"
+        }
+    ],
+    "key": "/books/OL31564071M",
+    "covers": [
+        12172407
+    ],
+    "ocaid": "kolesa0000hail",
+    "local_id": [
+        "urn:bwbsku:P6-CDV-272"
+    ],
+    "latest_revision": 5,
+    "revision": 5,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2020-12-07T17:03:37.779519"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2024-02-07T00:01:03.441601"
+    }
+}

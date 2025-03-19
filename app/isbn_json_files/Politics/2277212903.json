@@ -1,0 +1,94 @@
+{
+    "type": {
+        "key": "/type/edition"
+    },
+    "publish_date": "1982",
+    "publish_country": "fr",
+    "languages": [
+        {
+            "key": "/languages/fre"
+        }
+    ],
+    "authors": [
+        {
+            "key": "/authors/OL4038782A"
+        }
+    ],
+    "work_titles": [
+        "Nach Mitternacht"
+    ],
+    "series": [
+        "J'ai lu -- 1290"
+    ],
+    "links": [
+        {
+            "url": "http://catalogue.bnf.fr/ark:/12148/cb34685439z",
+            "title": "Notice et cote du catalogue de la Biblioth\u00e8que nationale de France"
+        }
+    ],
+    "contributions": [
+        "Berthier, Georges, 19 ...?- ... traducteur"
+    ],
+    "title": "Apr\u00e8s minuit",
+    "by_statement": "Irmgard Keun ; traduit de l'allemand par Georges Berthier",
+    "publishers": [
+        "\u00c9ditions J'ai lu",
+        "J'AI LU"
+    ],
+    "publish_places": [
+        "Paris, France"
+    ],
+    "pagination": "156 p.",
+    "number_of_pages": 156,
+    "source_records": [
+        "ia:apresminuit0000keun",
+        "promise:bwb_daily_pallets_2020-11-19",
+        "amazon:2277212903"
+    ],
+    "full_title": "Apr\u00e8s minuit",
+    "covers": [
+        10607988
+    ],
+    "works": [
+        {
+            "key": "/works/OL3827330W"
+        }
+    ],
+    "key": "/books/OL31925855M",
+    "identifiers": {},
+    "classifications": {},
+    "local_id": [
+        "urn:bwbsku:KO-503-428"
+    ],
+    "ocaid": "apresminuit0000keun",
+    "isbn_10": [
+        "2277212903"
+    ],
+    "isbn_13": [
+        "9782277212904"
+    ],
+    "oclc_numbers": [
+        "461740122"
+    ],
+    "translated_from": [
+        {
+            "key": "/languages/ger"
+        }
+    ],
+    "contributors": [
+        {
+            "role": "Translator",
+            "name": "Georges Berthier"
+        }
+    ],
+    "latest_revision": 7,
+    "revision": 7,
+    "created": {
+        "type": "/type/datetime",
+        "value": "2021-02-05T04:34:23.947783"
+    },
+    "last_modified": {
+        "type": "/type/datetime",
+        "value": "2023-11-07T22:53:39.566618"
+    }
+}
