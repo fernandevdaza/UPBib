@@ -67,3 +67,12 @@ CREATE TABLE `Libros_Categorias` (
   FOREIGN KEY (`categorias_id_categoria`) REFERENCES `Categorias`(`id_categoria`) ON DELETE CASCADE,
   FOREIGN KEY (`libros_id_libro`) REFERENCES `Libros`(`id_libro`) ON DELETE CASCADE
 );
+
+CREATE TABLE `RefreshTokens` (
+  `id` bigint(20) AUTO_INCREMENT PRIMARY KEY,
+  `usuario_id` bigint(20) NOT NULL,
+  `token` TEXT NOT NULL,
+  `fecha_creacion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `fecha_expiracion` TIMESTAMP NOT NULL,
+  FOREIGN KEY (usuario_id) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE
+);

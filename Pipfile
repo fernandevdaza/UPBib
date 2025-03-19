@@ -12,6 +12,8 @@ sqlalchemy = "*"
 python-dotenv = "*"
 fastapi = {extras = ["all"], version = "*"}
 pydantic = "*"
+requests = "*"
+cryptography = "*"
 
 [dev-packages]
 

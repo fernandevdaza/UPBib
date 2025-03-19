@@ -23,6 +23,7 @@ services:
       - "3306:3306"
     volumes:
       - ./data/db:/var/lib/mysql
+      - ./app/scripts_sql:/docker-entrypoint-initdb.d
     networks:
       - upbib_network
 
