@@ -13,6 +13,8 @@ class AuthController:
     def login(email: str, password: str):
         db = get_db_connection()
         try:
+            db.begin()
+
             sql = text("SELECT id_usuario, nombre_usuario, email_usuario, contrasenia_usuario FROM Usuarios WHERE email_usuario = :email")
             user = db.execute(sql, {"email": email}).fetchone()
 
@@ -40,6 +42,8 @@ class AuthController:
     def refresh_token(refresh_token: str):
         db = get_db_connection()
         try:
+            db.begin()
+
             sql = text("SELECT usuario_id, fecha_expiracion FROM RefreshTokens WHERE token = :token")
             token_data = db.execute(sql, {"token": refresh_token}).fetchone()
 
@@ -61,6 +65,7 @@ class AuthController:
     def logout(refresh_token: str):
         db = get_db_connection()
         try:
+            db.begin()
             sql = text("DELETE FROM RefreshTokens WHERE token = :token")
             db.execute(sql, {"token": refresh_token})
             db.commit()
@@ -72,6 +77,7 @@ class AuthController:
     def limpiar_tokens_expirados():
         db = get_db_connection()
         try:
+            db.begin()
             sql = text("DELETE FROM RefreshTokens WHERE fecha_expiracion < NOW()")
             db.execute(sql)
             db.commit()
@@ -82,17 +88,16 @@ class AuthController:
     def register(nombre, apellido, fecha_nacimiento, email, password, codigo_upb):
         db = get_db_connection()
         try:
-            # Verificar si el email ya está registrado
+            db.begin()
+
             sql_email_check = text("SELECT email_usuario FROM Usuarios WHERE email_usuario = :email")
             existing_user = db.execute(sql_email_check, {"email": email}).fetchone()
 
             if existing_user:
                 return {"error": "El email ya está registrado"}
 
-            # Hashear la contraseña
             hashed_password = hash_password(password)
 
-            # Insertar usuario
             sql_insert_user = text("""
                 INSERT INTO Usuarios (nombre_usuario, apellido_usuario, fecha_nacimiento_usuario, 
                                       email_usuario, contrasenia_usuario, codigo_estudiante_upb)
@@ -108,21 +113,17 @@ class AuthController:
             })
             db.commit()
 
-            # Obtener el id del usuario insertado
             sql_get_user = text("SELECT id_usuario FROM Usuarios WHERE email_usuario = :email")
             user = db.execute(sql_get_user, {"email": email}).fetchone()
             usuario_id = user.id_usuario
 
-            # Crear librero para el usuario
             sql_insert_librero = text("INSERT INTO Libreros (Usuarios_id_usuario) VALUES (:usuario_id)")
             db.execute(sql_insert_librero, {"usuario_id": usuario_id})
             db.commit()
 
-            # Generar tokens
             access_token = create_access_token({"sub": email, "id": usuario_id, "nombre": nombre})
             refresh_token = create_refresh_token({"sub": email})
 
-            # Guardar el Refresh Token en la base de datos
             sql_insert_token = text("""
                 INSERT INTO RefreshTokens (usuario_id, token, fecha_expiracion) 
                 VALUES (:usuario_id, :refresh_token, :fecha_expiracion)

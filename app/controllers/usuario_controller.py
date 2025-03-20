@@ -1,33 +1,64 @@
-from pymysql import cursors
+from sqlalchemy import text
 from app.models.database import get_db_connection
+from fastapi import HTTPException
+from typing import Optional, Dict
 
 
 class UsuarioController:
+    @staticmethod
+    def get_usuario(id_usuario: int) -> Optional[Dict]:
+        db = get_db_connection()
+        try:
+            sql = text(
+                """
+                SELECT
+                    id_usuario, 
+                    nombre_usuario, 
+                    apellido_usuario, 
+                    email_usuario, 
+                    fecha_registro_usuario
+                FROM Usuarios 
+                WHERE id_usuario = :id_usuario
+                """
+            )
+            result = db.execute(sql, {"id_usuario": id_usuario}).fetchone()
+
+            if not result:
+                raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+            return dict(result)
+
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error de base de datos: {str(e)}")
+        finally:
+            db.close()
 
     @staticmethod
-    def get_usuario(id_usuario):
-        conn = get_db_connection()
-        cursor = conn.cursor(cursors.DictCursor)
+    def delete_usuario(id_usuario: int) -> Dict:
+        db = get_db_connection()
+        try:
+            db.begin()
 
-        sql = "SELECT * FROM Usuarios WHERE id_usuario = %s"
-        cursor.execute(sql, (id_usuario,))
-        usuario = cursor.fetchone()
+            check_sql = text("SELECT 1 FROM Usuarios WHERE id_usuario = :id_usuario")
+            exists = db.execute(check_sql, {"id_usuario": id_usuario}).fetchone()
 
-        cursor.close()
-        conn.close()
+            if not exists:
+                raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
-        return usuario
+            delete_sql = text("DELETE FROM Usuarios WHERE id_usuario = :id_usuario")
+            result = db.execute(delete_sql, {"id_usuario": id_usuario})
+            db.commit()
 
-    @staticmethod
-    def delete_usuario(id_usuario):
-        conn = get_db_connection()
-        cursor = conn.cursor()
+            if result.rowcount == 0:
+                raise HTTPException(status_code=404, detail="No se pudo eliminar el usuario")
 
-        sql = "DELETE FROM Usuarios WHERE id_usuario = %s"
-        cursor.execute(sql, (id_usuario,))
-        conn.commit()
+            return {"message": "Usuario eliminado correctamente"}
 
-        cursor.close()
-        conn.close()
-
-        return {"message": "Usuario eliminado correctamente"}
+        except HTTPException as he:
+            db.rollback()
+            raise he
+        except Exception as e:
+            db.rollback()
+            raise HTTPException(status_code=500, detail=f"Error al eliminar usuario: {str(e)}")
+        finally:
+            db.close()
