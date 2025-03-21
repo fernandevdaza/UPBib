@@ -1,6 +1,20 @@
 version: '3.8'
 services:
-  app:
+  frontend:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./front:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    networks:
+      - upbib_network
+
+  backend:
     build: .
     ports:
       - "8000:8000"
@@ -11,9 +25,10 @@ services:
       - ${USERPROFILE}\.aws:/root/.aws:ro
     environment:
       - AWS_PROFILE=default
-      - AWS_REGION=us-east-1  # Tu región
+      - AWS_REGION=us-east-1
     networks:
       - upbib_network
+
   db:
     image: mysql:latest
     environment:
@@ -28,6 +43,7 @@ services:
       - ./app/scripts_sql:/docker-entrypoint-initdb.d
     networks:
       - upbib_network
+
 networks:
   upbib_network:
     driver: bridge
