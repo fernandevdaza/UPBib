@@ -3,3 +3,4 @@ data/
 .idea/
 app/__pycache__/
 .env
+/app/Libros/

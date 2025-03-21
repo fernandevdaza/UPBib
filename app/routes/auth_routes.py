@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.controllers.auth_controller import AuthController
 from app.schemas.login import LoginRequest, RefreshRequest, RegisterRequest
+from import_books import BookImporter
 
 router = APIRouter()
 
@@ -36,4 +37,14 @@ def logout(request: RefreshRequest):
 def refresh_token(request: RefreshRequest):
     result = AuthController.refresh_token(request.refresh_token)
     return result
+
+@router.get("/load_books")
+def load_books(request):
+    importer = BookImporter(
+        csv_path="app/books.csv",
+        libros_dir="app/Libros",
+        portadas_dir="app/Libros/Portadas",
+        s3_bucket="upbib"
+    )
+    importer.run()
 

@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   app:
     build: .
@@ -9,9 +8,12 @@ services:
       - db
     volumes:
       - .:/app
+      - ${USERPROFILE}\.aws:/root/.aws:ro
+    environment:
+      - AWS_PROFILE=default
+      - AWS_REGION=us-east-1  # Tu región
     networks:
       - upbib_network
-
   db:
     image: mysql:latest
     environment:
@@ -26,7 +28,6 @@ services:
       - ./app/scripts_sql:/docker-entrypoint-initdb.d
     networks:
       - upbib_network
-
 networks:
   upbib_network:
     driver: bridge

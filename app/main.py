@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.routes.auth_routes import router as auth_router
 from app.controllers.auth_controller import AuthController
+from import_books import BookImporter
 
 app = FastAPI(
     title="UpBib - Biblioteca Digital UPB",
@@ -10,3 +11,4 @@ app = FastAPI(
 AuthController.limpiar_tokens_expirados()
 
 app.include_router(auth_router, prefix="/auth")
+

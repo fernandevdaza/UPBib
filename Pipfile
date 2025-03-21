@@ -13,6 +13,7 @@ python-dotenv = "*"
 fastapi = {extras = ["all"], version = "*"}
 pydantic = "*"
 requests = "*"
+boto3 = "*"
 cryptography = "*"
 
 [dev-packages]
