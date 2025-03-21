@@ -1,0 +1,72 @@
+.user-library .top-bar {
+  background-color: white;
+  justify-content: space-between;
+}
+
+.user-library .categories-container {
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.user-library .category-section {
+  background-color: transparent;
+  margin-bottom: 0;
+}
+
+.user-library .category-section h2 {
+  font-size: 2rem !important;
+  margin: 2rem 0 !important;
+  color: #2c3e50;
+}
+
+.user-library .book-card {
+  min-width: 280px;
+  margin: 0 1.5rem 0 0;
+}
+
+.user-library .book-card:first-child {
+  margin-left: 1rem;
+}
+
+.user-library .status-btn.devolver {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.user-library .status-btn.leer {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.user-library .search-container {
+  display: none;
+}
+
+.user-library .mis-libros-btn {
+  display: none;
+}
+
+/* Animaciones */
+.status-btn {
+  transition: all 0.2s ease;
+}
+.status-btn.prestado {
+  display: block; /* Asegura visibilidad */
+  background-color: #dc3545; /* Color consistente */
+}
+
+.status-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Placeholder para imágenes */
+.cover-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #eee;
+  color: #666;
+  font-size: 1rem;
+}
