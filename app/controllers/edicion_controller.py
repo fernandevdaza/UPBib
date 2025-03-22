@@ -64,25 +64,18 @@ class EdicionController:
                 db.close()
 
     @staticmethod
-    def obtener_ediciones_libro(libro_id: int) -> List[Dict]:
+    def obtener_ediciones_libro(libro_id: int, db=None) -> List[Dict]:
         """Obtiene todas las ediciones de un libro"""
-        db = get_db_connection()
+        if db is None:
+            db = get_db_connection()
+            db.begin()
         try:
             ediciones = db.execute(
-                text("""
-                    SELECT 
-                        id_edicion,
-                        isbn,
-                        enlace_libro,
-                        fecha_edicion
-                    FROM Ediciones
-                    WHERE libros_id_libro = :libro_id
-                    ORDER BY fecha_edicion DESC
-                """),
+                text("SELECT * FROM Ediciones WHERE libros_id_libro = :libro_id"),
                 {"libro_id": libro_id}
             ).fetchall()
 
-            return [dict(edicion) for edicion in ediciones]
+            return [edicion._asdict() for edicion in ediciones]
 
         except MySQLError as e:
             raise HTTPException(500, f"Error al obtener ediciones: {str(e)}")

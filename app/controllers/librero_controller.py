@@ -5,11 +5,11 @@ from app.models.database import get_db_connection
 class LibreroController:
 
     @staticmethod
-    def agregar_libro_librero(id_usuario: int, id_libro: int) -> dict:
-        db = get_db_connection()
-        try:
+    def agregar_libro_librero(id_usuario: int, id_libro: int, db=None) -> dict:
+        if db is None:
+            db = get_db_connection()
             db.begin()
-
+        try:
             sql_count = text("""
                 SELECT COUNT(*) as total
                 FROM Libreros_Libros
@@ -64,11 +64,11 @@ class LibreroController:
             db.close()
 
     @staticmethod
-    def eliminar_libro_librero(id_usuario: int, id_libro: int) -> dict:
-        db = get_db_connection()
-        try:
+    def eliminar_libro_librero(id_usuario: int, id_libro: int, db=None) -> dict:
+        if db is None:
+            db = get_db_connection()
             db.begin()
-
+        try:
             result = db.execute(
                 text("""
                     DELETE FROM Libreros_Libros
@@ -96,9 +96,11 @@ class LibreroController:
         finally:
             db.close()
     @staticmethod
-    def obtener_libros_librero(id_usuario: int) -> list:
+    def obtener_libros_librero(id_usuario: int, db=None) -> list:
         """Obtiene los libros en el librero del usuario con información completa"""
-        db = get_db_connection()
+        if db is None:
+            db = get_db_connection()
+            db.begin()
         try:
             sql = text("""
                 SELECT 

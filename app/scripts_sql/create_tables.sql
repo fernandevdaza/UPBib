@@ -26,7 +26,7 @@ CREATE TABLE `Libros` (
 CREATE TABLE `Ediciones` (
   `id_edicion` bigint(20) auto_increment PRIMARY KEY,
   `libros_id_libro` bigint(20) NOT NULL,
-  `isbn` varchar(13) UNIQUE NOT NULL,
+  `isbn` varchar(20) UNIQUE NOT NULL,
   `enlace_libro` text NOT NULL,
   `fecha_edicion` date NOT NULL,
   FOREIGN KEY (`libros_id_libro`) REFERENCES `Libros`(`id_libro`) ON DELETE CASCADE

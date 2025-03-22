@@ -2,9 +2,10 @@ import csv
 import re
 from datetime import date
 from pathlib import Path
-from time import strptime
-
+from botocore.exceptions import ClientError
 import boto3
+from sqlalchemy import text
+
 from app.models.database import get_db_connection
 from app.controllers.libro_controller import LibroController
 from app.controllers.autor_controller import AutorController
@@ -19,22 +20,45 @@ class BookImporter:
         self.s3 = boto3.client('s3')
         self.bucket = s3_bucket
         self.db = get_db_connection()
+        self.region = self.get_bucket_region()
 
-    def extract_number(self, filename):
-        match = re.search(r'^(\d+)', filename)
-        return int(match.group(1)) if match else None
+    def get_bucket_region(self):
+        """Obtiene la región del bucket S3"""
+        try:
+            return self.s3.get_bucket_location(Bucket=self.bucket)['LocationConstraint'] or 'us-east-1'
+        except ClientError as e:
+            print(f"Error obteniendo región del bucket: {str(e)}")
+            return 'us-east-1'
+    @staticmethod
+    def clean_title(title):
+        """Elimina número y punto inicial del título"""
+        return re.sub(r'^\d+\.\s*', '', title).strip()
 
     def upload_to_s3(self, file_path):
+        """Sube archivo y genera URL temporal"""
         try:
-            self.s3.upload_file(str(file_path), self.bucket, file_path.name)
-            return f"s3://{self.bucket}/{file_path.name}"
+            key = f"private/{file_path.name}"
+            self.s3.upload_file(str(file_path), self.bucket, key)
+            url = self.s3.generate_presigned_url(
+                'get_object',
+                Params={'Bucket': self.bucket, 'Key': key},
+                ExpiresIn=31536000
+            )
+            return url
         except Exception as e:
             print(f"Error subiendo {file_path}: {str(e)}")
             return None
 
+    @staticmethod
+    def extract_number(filename):
+        match = re.search(r'^(\d+)', filename)
+        return int(match.group(1)) if match else None
+
     def process_row(self, row):
+        book_number = self.extract_number(row['titulo'])
+
         try:
-            book_number = self.extract_number(row['titulo'])
+            cleaned_title = self.clean_title(row['titulo'])
 
             if not book_number:
                 print(f"⚠️ Título sin número: {row['titulo']}")
@@ -53,37 +77,90 @@ class BookImporter:
             self.db.begin()
 
             libro_id = LibroController.crear_libro_base(
-                titulo=row['titulo'],
+                titulo=cleaned_title,
                 descripcion=row['descripcion'],
                 fecha_publicacion=row['fecha_publicacion'],
                 imagen_url=cover_url,
-            )
+                db=self.db
+            )["id_libro"]
+
+            self.db.commit()
 
             for edicion in row['ediciones'].split('|'):
-                isbn, fecha = edicion.split(';')
+                edicion_data = edicion.split(';')
+                isbn = edicion_data[0].split('=')[1]
+                fecha = edicion_data[1].split('=')[1]
+
                 EdicionController.crear_edicion(
-                    libro_id=libro_id["id_libro"],
-                    isbn=isbn.split('=')[1],
-                    fecha_edicion=fecha.split('=')[1],
+                    libro_id=libro_id,
+                    isbn=isbn,
+                    fecha_edicion=fecha,
                     enlace=pdf_url,
                     db=self.db
                 )
 
+            self.db.commit()
+
+
+            autores_ids = []
             for autor in row['autores'].split(','):
-                nombre, apellido = autor.strip().split(' ', 1) if ' ' in autor else (autor, '')
-                AutorController.create_autor(
+                autor = autor.strip()
+                if ' ' in autor:
+                    nombres = autor.split(' ', 1)
+                    nombre = nombres[0]
+                    apellido = nombres[1]
+                else:
+                    nombre = autor
+                    apellido = ''
+
+                autor_id = AutorController.create_autor(
                     nombre=nombre,
                     apellido=apellido,
-                    fecha_nacimiento=strptime("1900-01-01", "%Y-%m-%d"),
-                )
+                    fecha_nacimiento=date(1900, 1, 1),
+                    db=self.db
+                )["id_autor"]
+                autores_ids.append(autor_id)
 
-            for categoria in row['categorias'].split(','):
-                CategoriaController.create_categoria(
-                    nombre=categoria.strip(),
+            self.db.commit()
+
+
+            if autores_ids:
+                self.db.execute(
+                    text("""
+                                INSERT IGNORE INTO Libros_Autores 
+                                (libros_id_libro, autores_id_autor) 
+                                VALUES (:libro_id, :autor_id)
+                            """),
+                    [{"libro_id": libro_id, "autor_id": aid} for aid in autores_ids]
                 )
 
             self.db.commit()
-            print(f"Libro #{book_number} importado")
+
+
+            categorias_ids = []
+            for categoria in row['categorias'].split(','):
+                categoria = categoria.strip()
+                categoria_id = CategoriaController.create_categoria(
+                    nombre=categoria,
+                    db=self.db
+                )["id_categoria"]
+                categorias_ids.append(categoria_id)
+
+            self.db.commit()
+
+
+            if categorias_ids:
+                self.db.execute(
+                    text("""
+                                INSERT IGNORE INTO Libros_Categorias 
+                                (libros_id_libro, categorias_id_categoria) 
+                                VALUES (:libro_id, :categoria_id)
+                            """),
+                    [{"libro_id": libro_id, "categoria_id": cid} for cid in categorias_ids]
+                )
+
+            self.db.commit()
+            print(f"✅ Libro #{book_number} importado completamente")
 
         except Exception as e:
             self.db.rollback()
