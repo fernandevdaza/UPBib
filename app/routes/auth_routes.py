@@ -10,7 +10,11 @@ def login(request: LoginRequest):
     result = AuthController.login(request.email, request.password)
     if not result:
         raise HTTPException(status_code=401, detail="Credenciales inválidas")
-    return result
+    return {
+        "access_token": result["access_token"],
+        "refresh_token": result["refresh_token"],
+        "token_type": "bearer"
+    }
 
 
 @router.post("/register")
@@ -42,8 +46,8 @@ def refresh_token(request: RefreshRequest):
 def load_books(request):
     importer = BookImporter(
         csv_path="app/books.csv",
-        libros_dir="app/Libros",
-        portadas_dir="app/Libros/Portadas",
+        libros_dir="Libros",
+        portadas_dir="Libros/Portadas",
         s3_bucket="upbib"
     )
     importer.run()
