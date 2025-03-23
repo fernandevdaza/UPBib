@@ -1,13 +1,21 @@
+import httpx
 from fastapi import APIRouter, Depends, HTTPException, Header
+from fastapi.openapi.models import Response
+
 from app.controllers.libro_controller import LibroController
 from app.schemas.libro import LibroCreate
 from app.utils.auth_middleware import get_current_user
 import os
+import boto3
+from botocore.exceptions import ClientError
+from dotenv import load_dotenv
+load_dotenv()
 
 router = APIRouter()
 
 API_KEY = os.getenv("ADMIN_API_KEY")
-
+BUCKET = os.getenv("S3_BUCKET")
+s3 = boto3.client('s3')
 
 def verificar_api_key(api_key: str = Header(..., alias="X-API-Key")):
     if not API_KEY:

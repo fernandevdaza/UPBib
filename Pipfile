@@ -15,6 +15,7 @@ pydantic = "*"
 requests = "*"
 boto3 = "*"
 cryptography = "*"
+pypdf2 = "*"
 
 [dev-packages]
 

@@ -169,7 +169,6 @@ class LibroController:
             ).fetchall()
             libro_dict["autores"] = [autor._asdict() for autor in autores_result]
 
-            # Categorías con ._asdict()
             categorias_result = db.execute(
                 text("""
                     SELECT c.id_categoria, c.nombre_categoria
@@ -181,7 +180,6 @@ class LibroController:
             ).fetchall()
             libro_dict["categorias"] = [cat._asdict() for cat in categorias_result]
 
-            # Ediciones con ._asdict() desde el controlador
             libro_dict["ediciones"] = EdicionController.obtener_ediciones_libro(id_libro)
 
             return libro_dict
@@ -235,3 +233,25 @@ class LibroController:
             raise HTTPException(status_code=500, detail=str(e))
         finally:
             db.close()
+
+
+    @staticmethod
+    def obtener_metadatos(libro_id: int, db=None) -> dict:
+        """Obtiene la clave S3 y otros datos del libro"""
+        if db is None:
+            db = get_db_connection()
+        try:
+            libro = db.execute(
+                text("""SELECT
+                        e.enlace_libro
+                    FROM Libros l
+                    LEFT JOIN Ediciones e
+                    ON l.id_libro = e.libros_id_libro
+                    WHERE l.id_libro = :libro_id"""),
+                {"libro_id": libro_id}
+            ).fetchone()
+            if not libro:
+                raise HTTPException(404, "Libro no encontrado")
+            return {"s3_key": libro.enlace_libro}
+        except Exception as e:
+            raise HTTPException(500, f"Error al obtener libro: {str(e)}")
