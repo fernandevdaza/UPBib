@@ -34,17 +34,16 @@ class BookImporter:
         """Elimina número y punto inicial del título"""
         return re.sub(r'^\d+\.\s*', '', title).strip()
 
-    def upload_to_s3(self, file_path):
-        """Sube archivo y genera URL temporal"""
+    def upload_to_s3(self, file_path, folder='books'):
+        """Sube archivo a S3 y retorna la clave (sin URL)"""
         try:
-            key = f"private/{file_path.name}"
-            self.s3.upload_file(str(file_path), self.bucket, key)
-            url = self.s3.generate_presigned_url(
-                'get_object',
-                Params={'Bucket': self.bucket, 'Key': key},
-                ExpiresIn=31536000
+            key = f"{folder}/{file_path.name}"
+            self.s3.upload_file(
+                str(file_path),
+                self.bucket,
+                key
             )
-            return url
+            return key
         except Exception as e:
             print(f"Error subiendo {file_path}: {str(e)}")
             return None
@@ -56,10 +55,8 @@ class BookImporter:
 
     def process_row(self, row):
         book_number = self.extract_number(row['titulo'])
-
         try:
             cleaned_title = self.clean_title(row['titulo'])
-
             if not book_number:
                 print(f"⚠️ Título sin número: {row['titulo']}")
                 return
@@ -71,19 +68,17 @@ class BookImporter:
                 print(f"Archivos faltantes para libro #{book_number}")
                 return
 
-            pdf_url = self.upload_to_s3(pdf_file)
-            cover_url = self.upload_to_s3(cover_file)
+            pdf_key = self.upload_to_s3(pdf_file, "libros")
+            cover_key = self.upload_to_s3(cover_file, "portadas")
 
             self.db.begin()
-
             libro_id = LibroController.crear_libro_base(
                 titulo=cleaned_title,
                 descripcion=row['descripcion'],
                 fecha_publicacion=row['fecha_publicacion'],
-                imagen_url=cover_url,
+                imagen_url=cover_key,
                 db=self.db
             )["id_libro"]
-
             self.db.commit()
 
             for edicion in row['ediciones'].split('|'):
@@ -95,7 +90,7 @@ class BookImporter:
                     libro_id=libro_id,
                     isbn=isbn,
                     fecha_edicion=fecha,
-                    enlace=pdf_url,
+                    enlace=pdf_key,
                     db=self.db
                 )
 
