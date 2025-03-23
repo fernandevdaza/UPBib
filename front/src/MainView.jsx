@@ -1,6 +1,6 @@
-import './MainView.css'
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './MainView.css'
 
 const MainView = ({ books, setBooks }) => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -22,10 +22,13 @@ const MainView = ({ books, setBooks }) => {
   return (
     <div className="main-container">
       <nav className="top-bar">
-        <img className="imageOtherViews" src="public/LogoUPBib2.png" alt="Logo Main" />
-        <Link to="/mi-libreria">
-            <button className="mis-libros-btn">Mis Libros</button>
-        </Link>
+        <img className="imageOtherViews" src="public/logoUPBib2.png" alt="Logo Main" />
+        <button
+              type="button"
+              className="mis-libros-btn"
+              onClick={() => navigate("/mi-libreria")}
+          >Mi librero
+          </button>
         <div className="search-container">
           <input type="text" placeholder="Buscar..." />
         </div>

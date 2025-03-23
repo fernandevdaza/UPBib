@@ -1,9 +1,104 @@
-.form-group-row {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: transparent;
+  }
+
+.registro-container {
+    background-color: rgba(0, 0, 0, 0.834);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+  }
+
+
+.imageRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 60%;
+    max-width: 414px;
+    margin: 0 auto;
+    background-color: white;
+    border: 2px solid black;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    top: 14%;
+  }
+
+
+  .allRegister {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 350px;
+    max-width: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    position: relative;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  .inputRegister {
+    width: 100%;
+    padding: 0.8rem 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 0.3rem;
+    text-indent: 10px;
+  }
+  .inputRegister::placeholder {
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.form-row .form-group {
+.form-group.row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-group.row .col {
   flex: 1;
+}
+
+/* En Register.css */
+.date-inputs {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.date-inputs input {
+  flex: 1;
+  padding: 0.8rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -moz-appearance: textfield; /* Oculta flechas en Firefox */
+}
+
+.date-inputs input::-webkit-outer-spin-button,
+.date-inputs input::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Oculta flechas en Chrome/Safari */
+}
+
+.date-inputs input::placeholder {
+  text-align: center;
+  transform: none;
+  opacity: 0.6;
+}
+
+.login-link {
+    margin-top: 1rem;
 }

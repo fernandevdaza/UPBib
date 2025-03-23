@@ -3,40 +3,72 @@ import { useNavigate, Link } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    username: '',
+   const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
     email: '',
+    birthDay: '',
+    birthMonth: '',
+    birthYear: '',
+    upbCode: '',
     password: '',
     confirmPassword: ''
   });
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState('')
+  // Función simplificada de validación
+  const isValidDate = (day, month, year) => {
+    if (month < 1 || month > 12) return false;
+    if (day < 1 || day > 31) return false;
+
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if ((year % 4 === 0 && month === 2) && day <= 29) return true;
+
+    return day <= daysInMonth[month - 1];
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validaciones de nombre y apellido
     if (!formData.firstName.trim() || !formData.lastName.trim()) {
-      setError('Debe ingresar nombres y apellidos válidos');
+      setError('Ingresa nombres y apellidos válidos');
       return;
     }
 
+    // Validación de fecha
+    const day = parseInt(formData.birthDay);
+    const month = parseInt(formData.birthMonth);
+    const year = parseInt(formData.birthYear);
+
+    if (!isValidDate(day, month, year)) {
+      setError('Fecha inválida');
+      return;
+    }
+
+    // Validación de códifo UPB
+    if (!/^\d{5,10}$/.test(formData.upbCode)) {
+      setError('Código UPB inválido (5-10 dígitos)');
+      return;
+    }
+
+    // Validación de contraseña
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden');
       return;
     }
 
-    const dateRegex = /^\d{4}\/\d{2}\/\d{2}$/;
-    if (!dateRegex.test(formData.birthDate)) {
-      setError('Formato de fecha inválido. Use AAAA/MM/DD');
-      return;
-    }
+    // Formatear fecha para el backend
+    const formattedDate = `${year}/${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')}`;
 
-    const codeRegex = /^\d{5,10}$/;
-      if (!codeRegex.test(formData.upbCode)) {
-      setError('Código UPB inválido (5-10 dígitos)');
-  return;
-}
-
+    // Ejemplo de objeto para enviar al backend
+    const userData = {
+      nombres: formData.firstName,
+      apellidos: formData.lastName,
+      email: formData.email,
+      fechaNacimiento: formattedDate,
+      codigoUPB: formData.upbCode,
+      password: formData.password
+    };
 
     alert('¡Registro exitoso! Ahora puedes iniciar sesión');
     navigate('/');
@@ -51,15 +83,14 @@ const Register = () => {
   };
 
   return (
-    <div className="login-container">
-      <img className="imageLogin" src="public/LogoUPBibGOD2.png" alt="Logo Login" />
-      <div className="all">
+    <div className="registro-container">
+      <img className="imageRegister" src="public/LogoUPBibGOD2.png" alt="Logo Login" />
+      <div className="allRegister">
         <form onSubmit={handleSubmit}>
-          <h2>Crear nueva cuenta</h2>
 
           <div className="form-group row">
             <div className="col">
-              <input
+              <input className="inputRegister"
                 type="text"
                 name="firstName"
                 placeholder="Nombres"
@@ -70,7 +101,7 @@ const Register = () => {
               />
             </div>
             <div className="col">
-              <input
+              <input className="inputRegister"
                 type="text"
                 name="lastName"
                 placeholder="Apellidos"
@@ -83,31 +114,53 @@ const Register = () => {
           </div>
 
           <div className="form-group">
-            <input
+            <input className="inputRegister"
               type="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Correo electrónico"
-              onChange={handleChange}
               required
             />
           </div>
-          <div className="form-group">
-            <input
-              type="text"
-              name="birthDate"
-              placeholder="Fecha de nacimiento (AAAA/MM/DD)"
-              value={formData.birthDate}
-              onChange={handleChange}
-              pattern="\d{4}/\d{2}/\d{2}"
-              required
-            />
-          </div>
+          <div className="form-group date-inputs">
+          <input
+            type="number"
+            name="birthDay"
+            placeholder="DD"
+            min="1"
+            max="31"
+            value={formData.birthDay}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="number"
+            name="birthMonth"
+            placeholder="MM"
+            min="1"
+            max="12"
+            value={formData.birthMonth}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="number"
+            name="birthYear"
+            placeholder="AAAA"
+            min="1900"
+            max={new Date().getFullYear()}
+            value={formData.birthYear}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
           <div className="form-group">
-            <input
+            <input className="inputRegister"
               type="number"
               name="upbCode"
-              placeholder="Código UPB (5-10 dígitos)"
+              placeholder="Código UPB"
               value={formData.upbCode}
               onChange={handleChange}
               min="10000"
@@ -122,7 +175,7 @@ const Register = () => {
             </div>
 
           <div className="form-group">
-            <input
+            <input className="inputRegister"
               type="password"
               name="password"
               placeholder="Contraseña"
@@ -132,7 +185,7 @@ const Register = () => {
           </div>
 
           <div className="form-group">
-            <input
+            <input className="inputRegister"
               type="password"
               name="confirmPassword"
               placeholder="Confirmar contraseña"

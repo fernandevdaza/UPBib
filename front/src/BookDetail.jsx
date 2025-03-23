@@ -6,6 +6,7 @@ import { BookI } from '@interfaces/book'
 import { ArrowLeft, Loader2 } from 'lucide-react'
 import axios from 'axios'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
+import './BookDetail.css'
 
 const BookDetail = () => {
   const { id } = useParams()

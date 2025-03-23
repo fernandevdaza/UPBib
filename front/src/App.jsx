@@ -16,7 +16,7 @@ function App() {
       title: 'El Señor de los Anillos',
       author: 'J.R.R. Tolkien',
       status: 'Prestado',
-      description: 'Una épica historia de fantasía que sigue el viaje de Frodo Bolsón...',
+      description: '"El Señor de los Anillos" es una obra de fantasía épica que sigue las aventuras de un joven hobbit llamado Frodo Bolsón, quien recibe la misión de destruir un anillo mágico con un poder inmenso. Este anillo fue forjado por el oscuro señor Sauron, quien busca recuperarlo para dominar toda la Tierra Media. La historia narra su viaje junto con un grupo diverso de compañeros, incluyendo al mago Gandalf, el elfo Legolas, el enano Gimli, y el hombre Aragorn, descendiente de los antiguos reyes. A lo largo de la serie, Frodo y su grupo deben enfrentarse a diversos desafíos, como monstruos, traiciones y luchas contra las fuerzas oscuras, mientras intentan evitar que Sauron se apodere del anillo y destruya el mundo tal como lo conocen.',
       imagen: '/ruta/a/imagen1.jpg',
       categorias: ['Ficción']
     },

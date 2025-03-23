@@ -26,7 +26,7 @@ const Login = () => {
       <div className="all">
         <form onSubmit={handleLogin}>
           <div className="user">
-              <input
+              <input className="inputLogin"
                 type="text"
                 name="name"
                 placeholder="Usuario"
@@ -36,7 +36,7 @@ const Login = () => {
               />
           </div>
           <div className="pass">
-              <input
+              <input className="inputLogin"
                 type="password"
                 name="contrasenia"
                 placeholder="Contraseña"
@@ -46,11 +46,18 @@ const Login = () => {
               />
           </div>
           <button className="validar" type="submit">Acceder</button>
-          <a href="/reset-password">¿Olvidaste tu contraseña?</a>
-          <div className="register-link">
-              <span>¿No tienes cuenta? </span>
-              <Link to="/registro" className="link">Regístrate</Link>
+          <div className="reset-link">
+              <a href="/reset-password">¿Olvidaste tu contraseña?</a>
           </div>
+          <div className="divider">
+            <span>o</span>
+          </div>
+          <button
+              type="button"
+              className="crear-cuenta"
+              onClick={() => navigate('/registro')}
+          >Crear cuenta
+          </button>
         </form>
 
       </div>

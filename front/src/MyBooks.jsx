@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './MainView.css';
+import './MyBooks.css';
 
 const UserLibrary = ({ books, onReturnBook }) => {
   const [showDropdown, setShowDropdown] = React.useState(false);
@@ -17,17 +17,17 @@ const UserLibrary = ({ books, onReturnBook }) => {
   };
 
   return (
-    <div className="main-container">
-      <nav className="top-bar">
-        <img className="imageOtherViews" src="public/LogoUPBib2.png" alt="Logo Main" />
+    <div className="main-container-Books">
+      <nav className="top-bar-Books">
+        <img className="imageOtherViews-mybooks" src="public/logoUPBib2.png" alt="Logo Main" />
         <Link to="/main">
           <button className="biblioteca-btn">Biblioteca</button>
         </Link>
-        <div className="user-profile" onClick={() => setShowDropdown(!showDropdown)}>
-          <div className="user-image"></div>
+        <div className="user-profile-books" onClick={() => setShowDropdown(!showDropdown)}>
+          <div className="user-image-books"></div>
           <span>Usuario</span>
           {showDropdown && (
-            <div className="profile-dropdown">
+            <div className="profile-dropdown-books">
               <button>Mi Perfil</button>
               <button>Ajustes</button>
               <button onClick={handleLogout}>Cerrar Sesión</button>
@@ -36,25 +36,25 @@ const UserLibrary = ({ books, onReturnBook }) => {
         </div>
       </nav>
 
-      <div className="categories-container">
-        <div className="category-section">
+      <div className="categories-container-book">
+        <div className="category-section-book">
           <h2>Mi Librero</h2>
-          <div className="books-scroll">
+          <div className="books-scroll-book">
             {books
               .filter(book => book.status === 'Prestado')
               .map(book => (
-                <div key={book.id} className="book-card">
+                <div key={book.id} className="book-card-book">
                   <div
-                    className="book-cover"
+                    className="book-cover-book"
                     style={{ backgroundImage: `url(${book.imagen})` }}
                   >
-                    {!book.imagen && <div className="cover-placeholder">Sin portada</div>}
+                    {!book.imagen && <div className="cover-placeholder-book">Sin portada</div>}
                   </div>
-                  <div className="book-info">
-                    <h3 className="book-title">{book.title}</h3>
-                    <p className="book-author">{book.author}</p>
+                  <div className="book-info-book">
+                    <h3 className="book-title-book">{book.title}</h3>
+                    <p className="book-author-book">{book.author}</p>
                   </div>
-                  <div className="book-actions">
+                  <div className="book-actions-book">
                     <button
                       className="leer-btn"
                       onClick={() => handleLeerLibro(book.id)}
