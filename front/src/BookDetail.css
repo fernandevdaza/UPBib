@@ -1,0 +1,142 @@
+/* BookDetail.css */
+.book-detail-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.back-button-container {
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  padding: 0.75rem;
+  transition: background-color 0.2s;
+}
+
+.back-button-container:hover {
+  background-color: #e5e7eb;
+}
+
+.book-detail-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.pdf-viewer-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.book-metadata {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.pdf-container {
+  position: sticky;
+  top: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.pdf-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+}
+
+.pdf-message {
+  color: #4b5563;
+  text-align: center;
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+.load-pdf-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.load-pdf-button:hover {
+  background-color: #2563eb;
+}
+
+.pdf-page-info {
+  color: #6b7280;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .pdf-viewer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-container {
+    position: static;
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-detail-title {
+    font-size: 1.5rem;
+  }
+
+  .book-metadata {
+    padding: 1.5rem;
+  }
+
+  .pdf-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-detail-header {
+    padding: 0 0.5rem;
+  }
+
+  .book-detail-title {
+    font-size: 1.25rem;
+  }
+
+  .book-metadata {
+    padding: 1rem;
+  }
+}

@@ -1,55 +1,75 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './MainView.css';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './MyBooks.css';
 
-const UserLibrary = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-  
-  // Ejemplo de libros del usuario (puedes recibirlos por props o desde un estado global)
-  const userBooks = [
-    // Agrega aquí los libros del usuario
-  ];
+const UserLibrary = ({ books, onReturnBook }) => {
+  const [showDropdown, setShowDropdown] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => navigate('/');
+
+  const handleLeerLibro = (bookId) => {
+  window.open(`/book/${bookId}/read`, "_blank"); // "_blank" abre en nueva pestaña
+};
+
+  const handleDevolverLibro = (bookId) => {
+    onReturnBook(bookId);
+  };
 
   return (
-    <div className="main-container">
-      <nav className="top-bar">
-        <Link to="/">
-          <img className="imageOtherViews" src="public/LogoUPBib2.png" alt="Logo Main" />
+    <div className="main-container-Books">
+      <nav className="top-bar-Books">
+        <img className="imageOtherViews-mybooks" src="public/logoUPBib2.png" alt="Logo Main" />
+        <Link to="/main">
+          <button className="biblioteca-btn">Biblioteca</button>
         </Link>
-        
-        <div className="user-profile" onClick={() => setShowDropdown(!showDropdown)}>
-          <div className="user-image"></div>
+        <div className="user-profile-books" onClick={() => setShowDropdown(!showDropdown)}>
+          <div className="user-image-books"></div>
           <span>Usuario</span>
           {showDropdown && (
-            <div className="profile-dropdown">
+            <div className="profile-dropdown-books">
               <button>Mi Perfil</button>
               <button>Ajustes</button>
-              <button>Cerrar Sesión</button>
+              <button onClick={handleLogout}>Cerrar Sesión</button>
             </div>
           )}
         </div>
       </nav>
 
-      <div className="categories-container">
-        <div className="category-section">
+      <div className="categories-container-book">
+        <div className="category-section-book">
           <h2>Mi Librero</h2>
-          <div className="books-scroll">
-            {userBooks
-            .filter(book => book.status === 'Prestado') // Filtra por estado
-            .map(book => (
-          <div key={book.id} className="book-card">
-            <div className="book-cover" style={{ backgroundImage: `url(${book.imagen})` }}>
-              {!book.imagen && <div className="cover-placeholder">Sin portada</div>}
-            </div>
-              <div className="book-info">
-                <h3 className="book-title">{book.title}</h3>
-                <p className="book-author">{book.author}</p>
-              </div>
-                <button className={`status-btn devolver`}>
-                Devolver
-                </button>
-            </div>
-            ))}
+          <div className="books-scroll-book">
+            {books
+              .filter(book => book.status === 'Prestado')
+              .map(book => (
+                <div key={book.id} className="book-card-book">
+                  <div
+                    className="book-cover-book"
+                    style={{ backgroundImage: `url(${book.imagen})` }}
+                  >
+                    {!book.imagen && <div className="cover-placeholder-book">Sin portada</div>}
+                  </div>
+                  <div className="book-info-book">
+                    <h3 className="book-title-book">{book.title}</h3>
+                    <p className="book-author-book">{book.author}</p>
+                  </div>
+                  <div className="book-actions-book">
+                    <button
+                      className="leer-btn"
+                      onClick={() => handleLeerLibro(book.id)}
+                    >
+                      Leer
+                    </button>
+                    <button
+                      className="devolver-btn"
+                      onClick={() => handleDevolverLibro(book.id)}
+                    >
+                      Devolver
+                    </button>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>

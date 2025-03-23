@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -45,9 +46,7 @@ const Login = () => {
       <div className="all">
         <form onSubmit={handleLogin}>
           <div className="user">
-            <label>
-              Usuario:
-              <input
+              <input className="inputLogin"
                 type="text"
                 name="name"
                 placeholder="Usuario"
@@ -55,12 +54,9 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-            </label>
           </div>
           <div className="pass">
-            <label>
-              Contraseña:
-              <input
+              <input className="inputLogin"
                 type="password"
                 name="contrasenia"
                 placeholder="Contraseña"
@@ -68,10 +64,22 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-            </label>
           </div>
           <button className="validar" type="submit">Acceder</button>
+          <div className="reset-link">
+              <a href="/reset-password">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div className="divider">
+            <span>o</span>
+          </div>
+          <button
+              type="button"
+              className="crear-cuenta"
+              onClick={() => navigate('/registro')}
+          >Crear cuenta
+          </button>
         </form>
+
       </div>
     </div>
   );
