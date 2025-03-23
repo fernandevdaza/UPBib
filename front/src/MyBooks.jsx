@@ -9,8 +9,8 @@ const UserLibrary = ({ books, onReturnBook }) => {
   const handleLogout = () => navigate('/');
 
   const handleLeerLibro = (bookId) => {
-    window.open(`/lector/${bookId}`, '_blank');
-  };
+  window.open(`/book/${bookId}/read`, "_blank"); // "_blank" abre en nueva pestaña
+};
 
   const handleDevolverLibro = (bookId) => {
     onReturnBook(bookId);

@@ -7,6 +7,7 @@ import Register from './Register.jsx';
 import ResetPassword from './ResetPassword.jsx';
 import Book from './Book.jsx';
 import './App.css';
+import BookDetail from './BookDetail.jsx';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
         <Route path="/mi-libreria" element={<UserLibrary books={sampleBooks} onReturnBook={handleReturnBook}/>} />
         <Route path="/main" element={<MainView books={sampleBooks} setBooks={setSampleBooks} />} />
         <Route path="/book/:bookId" element={<Book books={sampleBooks} />} />
+        <Route path = "/book/:id/read" element={ <BookDetail />} />
       </Routes>
     </Router>
   );

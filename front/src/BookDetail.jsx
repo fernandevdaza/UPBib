@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
-import { Document, Page } from 'react-pdf'
-import { BookNotFound } from '@components/BookState'
-import { BookI } from '@interfaces/book'
-import { ArrowLeft, Loader2 } from 'lucide-react'
-import axios from 'axios'
+import { Document, Page } from 'react-pdf';
+
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import './BookDetail.css'
 
