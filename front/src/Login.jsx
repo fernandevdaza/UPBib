@@ -4,17 +4,37 @@ import "./login.css";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (username === "Usuario123" && password === "Contraseña123") {
+    try {
+      const response = await fetch(`${process.env.VITE_BACKEND_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.detail || "Error de autenticación");
+      }
+
+      localStorage.setItem("access_token", data.access_token);
+      localStorage.setItem("refresh_token", data.refresh_token);
+
       navigate("/main");
-    } else {
-      alert("Usuario o contraseña incorrectos.");
+    } catch (error) {
+      alert(error.message);
     }
   };
 
@@ -30,8 +50,8 @@ const Login = () => {
                 type="text"
                 name="name"
                 placeholder="Usuario"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
           </div>

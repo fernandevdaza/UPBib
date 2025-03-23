@@ -1,5 +1,4 @@
 from sqlalchemy import text
-from sqlalchemy.exc import IntegrityError
 from datetime import datetime, timedelta, UTC
 from app.utils.hash_util import verify_password, hash_password
 from app.utils.jwt_util import create_access_token, create_refresh_token, decode_refresh_token
@@ -10,8 +9,9 @@ REFRESH_TOKEN_EXPIRE_DAYS = 7
 class AuthController:
 
     @staticmethod
-    def login(email: str, password: str):
-        db = get_db_connection()
+    def login(email: str, password: str, db=None):
+        if db is None:
+            db = get_db_connection()
         try:
             db.begin()
 
@@ -39,8 +39,9 @@ class AuthController:
             db.close()
 
     @staticmethod
-    def refresh_token(refresh_token: str):
-        db = get_db_connection()
+    def refresh_token(refresh_token: str, db=None):
+        if db is None:
+            db = get_db_connection()
         try:
             db.begin()
 
@@ -62,8 +63,9 @@ class AuthController:
             db.close()
 
     @staticmethod
-    def logout(refresh_token: str):
-        db = get_db_connection()
+    def logout(refresh_token: str, db=None):
+        if db is None:
+            db = get_db_connection()
         try:
             db.begin()
             sql = text("DELETE FROM RefreshTokens WHERE token = :token")
@@ -74,10 +76,11 @@ class AuthController:
             db.close()
 
     @staticmethod
-    def limpiar_tokens_expirados():
-        db = get_db_connection()
-        try:
+    def limpiar_tokens_expirados(db=None):
+        if db is None:
+            db = get_db_connection()
             db.begin()
+        try:
             sql = text("DELETE FROM RefreshTokens WHERE fecha_expiracion < NOW()")
             db.execute(sql)
             db.commit()
@@ -85,11 +88,11 @@ class AuthController:
             db.close()
 
     @staticmethod
-    def register(nombre, apellido, fecha_nacimiento, email, password, codigo_upb):
-        db = get_db_connection()
-        try:
+    def register(nombre, apellido, fecha_nacimiento, email, password, codigo_upb, db=None):
+        if db is None:
+            db = get_db_connection()
             db.begin()
-
+        try:
             sql_email_check = text("SELECT email_usuario FROM Usuarios WHERE email_usuario = :email")
             existing_user = db.execute(sql_email_check, {"email": email}).fetchone()
 

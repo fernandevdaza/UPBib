@@ -6,8 +6,9 @@ from typing import Optional, Dict
 
 class UsuarioController:
     @staticmethod
-    def get_usuario(id_usuario: int) -> Optional[Dict]:
-        db = get_db_connection()
+    def get_usuario(id_usuario: int, db=None) -> Optional[Dict]:
+        if db is None:
+            db = get_db_connection()
         try:
             sql = text(
                 """
@@ -34,8 +35,9 @@ class UsuarioController:
             db.close()
 
     @staticmethod
-    def delete_usuario(id_usuario: int) -> Dict:
-        db = get_db_connection()
+    def delete_usuario(id_usuario: int, db=None) -> Dict:
+        if db is None:
+            db = get_db_connection()
         try:
             db.begin()
 

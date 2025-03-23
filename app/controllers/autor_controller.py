@@ -7,17 +7,23 @@ from pymysql import MySQLError
 
 class AutorController:
     @staticmethod
-    def create_autor(nombre: str, apellido: str, fecha_nacimiento: date) -> dict:
+    def create_autor(nombre: str, apellido: str, fecha_nacimiento: date, db=None) -> dict:
         """Crea un autor con validación y manejo de errores"""
-        db = get_db_connection()
+        if db is None:
+            db = get_db_connection()
+            db.begin()
         try:
-            # Validación básica
+            autor = db.execute(
+                text("SELECT id_autor FROM Autores WHERE nombre_autor = :nombre AND apellido_autor = :apellido"),
+                {"nombre": nombre, "apellido": apellido}
+            ).fetchone()
+
+            if autor:
+                return {"id_autor": autor.id_autor}  # Retornar ID existente sin error
+
             if not nombre or not apellido:
                 raise HTTPException(status_code=400, detail="Nombre y apellido son requeridos")
 
-            db.begin()
-
-            # Verificar existencia previa (opcional, según necesidades)
             existente = db.execute(
                 text("""
                     SELECT 1 FROM Autores 
@@ -30,7 +36,6 @@ class AutorController:
             if existente:
                 raise HTTPException(status_code=409, detail="El autor ya existe")
 
-            # Insertar nuevo autor
             result = db.execute(
                 text("""
                     INSERT INTO Autores 
@@ -61,9 +66,11 @@ class AutorController:
             db.close()
 
     @staticmethod
-    def get_autores(page: int = 1, limit: int = 100) -> list:
+    def get_autores(page: int = 1, limit: int = 100, db=None) -> list:
         """Obtiene autores con paginación"""
-        db = get_db_connection()
+        if db is None:
+            db = get_db_connection()
+            db.begin()
         try:
             offset = (page - 1) * limit
             sql = text("""

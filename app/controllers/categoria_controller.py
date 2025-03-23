@@ -6,35 +6,26 @@ from pymysql import MySQLError
 
 class CategoriaController:
     @staticmethod
-    def create_categoria(nombre: str) -> dict:
+    def create_categoria(nombre: str, db=None) -> dict:
         """Crea categoría con manejo de duplicados"""
-        db = get_db_connection()
-        try:
-            nombre = nombre.strip().title()
-            if not nombre:
-                raise HTTPException(400, "El nombre de categoría no puede estar vacío")
-
+        if db is None:
+            db = get_db_connection()
             db.begin()
+        try:
+            result = db.execute(
+                text("SELECT id_categoria FROM Categorias WHERE nombre_categoria = :nombre"),
+                {"nombre": nombre}
+            ).fetchone()
+
+            if result:
+                return {"id_categoria": result[0]}
 
             result = db.execute(
-                text("""
-                        INSERT INTO Categorias (nombre_categoria)
-                        VALUES (:nombre)
-                        ON DUPLICATE KEY UPDATE nombre_categoria = nombre_categoria
-                    """),
+                text("INSERT INTO Categorias (nombre_categoria) VALUES (:nombre)"),
                 {"nombre": nombre}
             )
-
-            if result.rowcount == 0:
-                categoria_id = db.execute(
-                    text("SELECT id_categoria FROM Categorias WHERE nombre_categoria = :nombre"),
-                    {"nombre": nombre}
-                ).fetchone()[0]
-            else:
-                categoria_id = result.lastrowid
-
             db.commit()
-            return {"id_categoria": categoria_id, "nombre": nombre}
+            return {"id_categoria": result.lastrowid}
 
         except MySQLError as e:
             db.rollback()
@@ -49,9 +40,11 @@ class CategoriaController:
             db.close()
 
     @staticmethod
-    def get_categorias(search: str = None) -> list:
+    def get_categorias(search: str = None, db=None) -> list:
         """Obtiene categorías con filtro de búsqueda"""
-        db = get_db_connection()
+        if db is None:
+            db = get_db_connection()
+            db.begin()
         try:
             sql_query = """
                     SELECT 
