@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -25,8 +26,6 @@ const Login = () => {
       <div className="all">
         <form onSubmit={handleLogin}>
           <div className="user">
-            <label>
-              Usuario:
               <input
                 type="text"
                 name="name"
@@ -35,11 +34,8 @@ const Login = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
-            </label>
           </div>
           <div className="pass">
-            <label>
-              Contraseña:
               <input
                 type="password"
                 name="contrasenia"
@@ -48,10 +44,15 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-            </label>
           </div>
           <button className="validar" type="submit">Acceder</button>
+          <a href="/reset-password">¿Olvidaste tu contraseña?</a>
+          <div className="register-link">
+              <span>¿No tienes cuenta? </span>
+              <Link to="/registro" className="link">Regístrate</Link>
+          </div>
         </form>
+
       </div>
     </div>
   );
