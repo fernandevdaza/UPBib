@@ -1,0 +1,7 @@
+data/
+/Pipfile.lock
+.idea/
+app/__pycache__/
+.env
+/app/Libros/
+/Libros/

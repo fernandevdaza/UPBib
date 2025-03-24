@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+uvicorn = "*"
+pyjwt = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
+pymysql = "*"
+sqlalchemy = "*"
+python-dotenv = "*"
+fastapi = {extras = ["all"], version = "*"}
+pydantic = "*"
+requests = "*"
+boto3 = "*"
+cryptography = "*"
+pypdf2 = "*"
+bcrypt = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
+python_full_version = "3.12.7"
