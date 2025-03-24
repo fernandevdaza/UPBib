@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './MainView.css';
 import api from './utils/api.js';
+import {getCookie} from "./utils/getCookie.js";
 
 const MainView = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -12,7 +13,7 @@ const MainView = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await api.get('/libros/');  // Llamada a la API
+        const response = await api.get('/libros/');
         const booksData = response.data;
 
         const grouped = booksData.reduce((acc, book) => {
@@ -39,7 +40,8 @@ const MainView = () => {
 
   const handleLogout = async () => {
     try {
-      await api.post('/auth/logout', {});
+      await api.post('/auth/logout', {
+        'refresh_token': localStorage.getItem("refresh_token")});
       sessionStorage.removeItem('access_token');
       navigate('/');
     } catch (error) {

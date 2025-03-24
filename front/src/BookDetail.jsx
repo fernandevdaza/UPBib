@@ -44,15 +44,15 @@ const cargarPDF = async () => {
     const totalPages = response.headers.get('X-Total-Pages');
     const totalVirtualPages = response.headers.get('X-Total-Virtual-Pages');
 
-    // Asegúrate de revocar el objeto URL anterior si existe
     if (pdfUrl) {
-      URL.revokeObjectURL(pdfUrl); // Revoca la URL anterior
+      URL.revokeObjectURL(pdfUrl);
     }
 
     const blob = await response.blob();
     const url = await blobToURL(blob);
 
-    setPdfUrl(url);
+
+    setPdfUrl(await url);
 
     if (totalPages) setNumPages(parseInt(totalPages));
     if (totalVirtualPages) setVirtualPages(parseInt(totalVirtualPages));
@@ -90,7 +90,7 @@ const cargarPDF = async () => {
   };
 
   const onLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+    setCurrentPdfPages(numPages);
   };
 
   if (pdfLoading) {

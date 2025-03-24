@@ -22,7 +22,7 @@ const Login = () => {
 
       navigate("/main");
     } catch (error) {
-      alert(error.message);
+      alert("Error: Email o contraseña incorrecto. Intentelo nuevamente");
     }
   };
 

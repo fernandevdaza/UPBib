@@ -15,3 +15,6 @@ class RegisterRequest(BaseModel):
     email: str
     password: str
     codigo_upb: int
+
+class LogoutRequest(BaseModel):
+    refresh_token: str
