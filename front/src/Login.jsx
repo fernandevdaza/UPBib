@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { Link } from "react-router-dom";
+import api from "./utils/api.js";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -12,25 +13,12 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${process.env.VITE_BACKEND_URL}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password
-        }),
-      });
+    const response = await api.post('/auth/login', {
+      email,
+      password
+    });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.detail || "Error de autenticación");
-      }
-
-      localStorage.setItem("access_token", data.access_token);
-      localStorage.setItem("refresh_token", data.refresh_token);
+      sessionStorage.setItem('access_token', response.data.access_token);
 
       navigate("/main");
     } catch (error) {

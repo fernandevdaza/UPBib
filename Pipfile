@@ -16,6 +16,7 @@ requests = "*"
 boto3 = "*"
 cryptography = "*"
 pypdf2 = "*"
+bcrypt = "*"
 
 [dev-packages]
 

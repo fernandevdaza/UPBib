@@ -7,6 +7,7 @@ from fastapi import HTTPException
 from app.controllers.autor_controller import AutorController
 from app.controllers.categoria_controller import CategoriaController
 from app.controllers.edicion_controller import EdicionController
+from app.utils.s3_url import get_s3_url
 
 
 class LibroController:
@@ -158,6 +159,12 @@ class LibroController:
 
             libro_dict = libro._asdict()
 
+            if libro_dict["imagen_libro"]:
+                libro_dict["imagen_libro_url"] = get_s3_url(libro_dict["imagen_libro"])
+            else:
+                libro_dict[
+                    "imagen_libro_url"] = "https://your-s3-bucket-url/default-image.jpg"
+
             autores_result = db.execute(
                 text("""
                     SELECT a.id_autor, a.nombre_autor, a.apellido_autor
@@ -189,14 +196,14 @@ class LibroController:
             db.close()
 
     @staticmethod
-    def get_libros_paginados(page: int = 1, limit: int = 50, db=None):
+    def get_libros_paginados(page: int = 1, limit: int = 50, db=None, id_usuario = None):
         offset = (page - 1) * limit
         if db is None:
             db = get_db_connection()
             db.begin()
         try:
             sql = text("""
-                WITH ultima_edicion AS (
+                 WITH ultima_edicion AS (
                     SELECT
                         e.libros_id_libro,
                         e.fecha_edicion,
@@ -213,7 +220,11 @@ class LibroController:
                     ANY_VALUE(l.imagen_libro) AS imagen_libro,
                     ANY_VALUE(le.enlace_libro) AS enlace_lectura,
                     GROUP_CONCAT(DISTINCT CONCAT(a.nombre_autor, ' ', a.apellido_autor)) AS autores,
-                    GROUP_CONCAT(DISTINCT c.nombre_categoria) AS categorias
+                    GROUP_CONCAT(DISTINCT c.nombre_categoria) AS categorias,
+                    CASE 
+                        WHEN ll.libros_id_libro IS NOT NULL THEN 'Prestado'
+                        ELSE 'Disponible'
+                    END AS status
                 FROM Libros l
                 INNER JOIN ultima_edicion le
                     ON l.id_libro = le.libros_id_libro
@@ -222,12 +233,24 @@ class LibroController:
                 LEFT JOIN Autores a ON la.autores_id_autor = a.id_autor
                 LEFT JOIN Libros_Categorias lc ON l.id_libro = lc.libros_id_libro
                 LEFT JOIN Categorias c ON lc.categorias_id_categoria = c.id_categoria
+                LEFT JOIN Libreros_Libros ll ON l.id_libro = ll.libros_id_libro
+                    AND ll.libreros_id_librero = (SELECT id_librero FROM Libreros WHERE Usuarios_id_usuario = :id_usuario)
                 GROUP BY l.id_libro
                 LIMIT :limit
                 OFFSET :offset
             """)
-            result = db.execute(sql, {"limit": limit, "offset": offset})
-            libros = [row._asdict() for row in result]  # Conversión segura
+            result = db.execute(sql, {"limit": limit, "offset": offset, "id_usuario": id_usuario})
+            libros = []
+
+            for row in result:
+                libro = row._asdict()
+                if libro["imagen_libro"]:
+                    libro["imagen_libro_url"] = get_s3_url(libro["imagen_libro"])
+                else:
+                    libro[
+                        "imagen_libro_url"] = "https://your-s3-bucket-url/default-image.jpg"
+                libros.append(libro)
+
             return libros
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))
@@ -243,7 +266,8 @@ class LibroController:
         try:
             libro = db.execute(
                 text("""SELECT
-                        e.enlace_libro
+                        e.enlace_libro,
+                        l.imagen_libro
                     FROM Libros l
                     LEFT JOIN Ediciones e
                     ON l.id_libro = e.libros_id_libro
@@ -252,6 +276,6 @@ class LibroController:
             ).fetchone()
             if not libro:
                 raise HTTPException(404, "Libro no encontrado")
-            return {"s3_key": libro.enlace_libro}
+            return {"s3_key": libro.enlace_libro, "portada_key": libro.imagen_libro}
         except Exception as e:
             raise HTTPException(500, f"Error al obtener libro: {str(e)}")

@@ -6,6 +6,8 @@ from app.utils.auth_middleware import get_current_user
 import boto3
 from PyPDF2 import PdfReader, PdfWriter
 import io
+import requests
+from app.utils.s3_url import get_s3_url
 
 router = APIRouter()
 s3 = boto3.client('s3')
@@ -47,26 +49,24 @@ async def leer_pdf(
             raise HTTPException(status_code=404, detail="Libro no encontrado")
 
         s3_key = libro_data['s3_key']
-        try:
-            response = s3.get_object(Bucket=BUCKET_NAME, Key=s3_key)
-        except s3.exceptions.NoSuchKey:
-            raise HTTPException(404, "Archivo no encontrado en S3")
-        except Exception as s3_error:
-            raise HTTPException(500, f"Error de S3: {str(s3_error)}")
+        pdf_url = get_s3_url(s3_key)
 
-        with io.BytesIO(response['Body'].read()) as pdf_data:
+        response = requests.get(pdf_url)
+        if response.status_code != 200:
+            raise HTTPException(status_code=500, detail="Error al obtener PDF")
+
+        with io.BytesIO(response.content) as pdf_data:
             reader = PdfReader(pdf_data)
             total_pages = len(reader.pages)
 
-            if total_pages == 0:
-                raise HTTPException(422, "El archivo PDF está vacío")
+            # Calcular número máximo de "páginas virtuales" (cada una contiene 2 hojas)
+            max_pagina = (total_pages + 1) // 2
+            if pagina > max_pagina:
+                raise HTTPException(422, "Página inválida")
 
-            pages_per_request = 2
-            start_page = (pagina - 1) * pages_per_request
-            end_page = start_page + pages_per_request
-
-            if start_page >= total_pages:
-                raise HTTPException(422, "Número de página inválido")
+            # Calcular rango de páginas reales
+            start_page = (pagina - 1) * 2
+            end_page = start_page + 2
 
             writer = PdfWriter()
             for page_num in range(start_page, min(end_page, total_pages)):
@@ -81,12 +81,12 @@ async def leer_pdf(
                 media_type="application/pdf",
                 headers={
                     "X-Total-Pages": str(total_pages),
+                    "X-Total-Virtual-Pages": str(max_pagina),
                     "X-Current-Page": str(pagina),
+                    "Access-Control-Expose-Headers": "X-Total-Pages, X-Total-Virtual-Pages, X-Current-Page",
                     "Content-Disposition": "inline; filename=document.pdf"
                 }
             )
 
-    except HTTPException as he:
-        raise he
     except Exception as e:
-        raise HTTPException(500, "Error procesando el documento")
+        raise HTTPException(500, detail=str(e))

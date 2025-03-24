@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
 from app.routes.auth_routes import router as auth_router
 from app.controllers.auth_controller import AuthController
 from app.routes.autor_routes import router as autor_router
@@ -24,9 +23,9 @@ app.include_router(categoria_router, prefix="/categoria")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Origen de tu frontend
+    allow_origins=["*"],  # Frontend en localhost:5173
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Permite todos los métodos HTTP
+    allow_headers=["*", "X-Total-Pages", "X-Total-Virtual-Pages", "X-Current-Page"],
 )
 

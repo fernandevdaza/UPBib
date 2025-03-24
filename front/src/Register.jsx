@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Register.css';
+import api from "./utils/api.js";
 
 const Register = () => {
    const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const Register = () => {
     confirmPassword: ''
   });
   const [error, setError] = useState('')
-  // Función simplificada de validación
+  const navigate = useNavigate();
   const isValidDate = (day, month, year) => {
     if (month < 1 || month > 12) return false;
     if (day < 1 || day > 31) return false;
@@ -26,16 +27,14 @@ const Register = () => {
     return day <= daysInMonth[month - 1];
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validaciones de nombre y apellido
     if (!formData.firstName.trim() || !formData.lastName.trim()) {
       setError('Ingresa nombres y apellidos válidos');
       return;
     }
 
-    // Validación de fecha
     const day = parseInt(formData.birthDay);
     const month = parseInt(formData.birthMonth);
     const year = parseInt(formData.birthYear);
@@ -45,33 +44,33 @@ const Register = () => {
       return;
     }
 
-    // Validación de códifo UPB
     if (!/^\d{5,10}$/.test(formData.upbCode)) {
       setError('Código UPB inválido (5-10 dígitos)');
       return;
     }
 
-    // Validación de contraseña
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden');
       return;
     }
 
     // Formatear fecha para el backend
-    const formattedDate = `${year}/${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')}`;
+    const formattedDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    try {
+        const response = await api.post('/auth/register', {
+            nombre: formData.firstName,
+            apellido: formData.lastName,
+            fecha_nacimiento: formattedDate,
+            email: formData.email,
+            password: formData.password,
+            codigo_upb: formData.upbCode
+        });
 
-    // Ejemplo de objeto para enviar al backend
-    const userData = {
-      nombres: formData.firstName,
-      apellidos: formData.lastName,
-      email: formData.email,
-      fechaNacimiento: formattedDate,
-      codigoUPB: formData.upbCode,
-      password: formData.password
-    };
-
-    alert('¡Registro exitoso! Ahora puedes iniciar sesión');
-    navigate('/');
+        sessionStorage.setItem('access_token', response.data.access_token);
+        navigate('/main');
+      } catch (error) {
+        setError(error.message || 'Error al registrar el usuario');
+    }
   };
 
   const handleChange = (e) => {

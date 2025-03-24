@@ -1,129 +1,149 @@
-import { useEffect, useState } from 'react'
-import { NavLink, useParams } from 'react-router-dom'
-import { Document, Page } from 'react-pdf';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Document, Page, pdfjs } from 'react-pdf';
+import { FaSpinner } from 'react-icons/fa';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
+import './LectorPDF.css';
 
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
-import './BookDetail.css'
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url,
+).toString();
 
-const BookDetail = () => {
-  const { id } = useParams()
-  const [book, setBook] = useState()
-  const [loading, setLoading] = useState(false)
-  const [pdfUrl, setPdfUrl] = useState('')
-  const [numPages, setNumPages] = useState()
-  const [pdfLoading, setPdfLoading] = useState(false)
+const LectorPDF = () => {
+  const { id } = useParams();
+  const [pdfUrl, setPdfUrl] = useState('');
+  const [numPages, setNumPages] = useState(0);
+  const [virtualPages, setVirtualPages] = useState(1);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [currentPdfPages, setCurrentPdfPages] = useState(0);
+  const [pdfLoading, setPdfLoading] = useState(false);
 
-  // Cargar datos del libro
+const blobToURL = (blob) => {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = function () {
+      const base64data = reader.result;
+      resolve(base64data);
+    };
+  });
+};
+
+const cargarPDF = async () => {
+  setPdfLoading(true);
+  try {
+    const response = await fetch(`http://localhost:8000/librero/api/lector/${id}?pagina=${pageNumber}`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
+      },
+    });
+    console.log(response.headers)
+    if (!response.ok) throw new Error('Error cargando PDF');
+    const totalPages = response.headers.get('X-Total-Pages');
+    const totalVirtualPages = response.headers.get('X-Total-Virtual-Pages');
+
+    // Asegúrate de revocar el objeto URL anterior si existe
+    if (pdfUrl) {
+      URL.revokeObjectURL(pdfUrl); // Revoca la URL anterior
+    }
+
+    const blob = await response.blob();
+    const url = await blobToURL(blob);
+
+    setPdfUrl(url);
+
+    if (totalPages) setNumPages(parseInt(totalPages));
+    if (totalVirtualPages) setVirtualPages(parseInt(totalVirtualPages));
+
+  } catch (error) {
+    console.error('Error:', error);
+    alert(error.message);
+  } finally {
+    setPdfLoading(false);
+  }
+};
   useEffect(() => {
-    const fetchBook = async () => {
-      setLoading(true)
-      try {
-        const response = await axios.get(`http://localhost:8000/api/libros/${id}`)
-        setBook(response.data)
-      } catch (error) {
-        console.error('Error cargando libro:', error)
-      } finally {
-        setLoading(false)
-      }
+    if (id && pageNumber > 0 && pageNumber <= virtualPages) {
+      cargarPDF();
     }
-    fetchBook()
-  }, [id])
+  }, [id, pageNumber, virtualPages]);
 
-  // Cargar PDF cuando el usuario haga clic
-  const cargarPDF = async () => {
-    if (!book) return
 
-    setPdfLoading(true)
-    try {
-      const response = await axios.get(`http://localhost:8000/api/libro/${id}/url`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      })
-      setPdfUrl(response.data.url)
-    } catch (error) {
-      console.error('Error cargando PDF:', error)
-    } finally {
-      setPdfLoading(false)
+  useEffect(() => {
+    return () => {
+      if (pdfUrl) URL.revokeObjectURL(pdfUrl);
+    };
+  }, [pdfUrl]);
+
+  const goToPrevPage = () => {
+    if (pageNumber > 1) {
+      setPageNumber(pageNumber - 1);
     }
+  };
+
+  const goToNextPage = () => {
+    if (pageNumber < virtualPages) {
+      setPageNumber(pageNumber + 1);
+    }
+  };
+
+  const onLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
+
+  if (pdfLoading) {
+    return (
+      <div className="flex justify-center items-center h-full">
+        <FaSpinner className="animate-spin text-xl" /> Cargando PDF...
+      </div>
+    );
   }
 
-  if (loading)
-    return (
-      <div className='flex gap-2 text-2xl justify-center mt-20'>
-        <Loader2 className='animate-spin' /> Cargando libro...
-      </div>
-    )
-
-  if (!book) return <BookNotFound />
-
   return (
-    <section className='max-w-6xl mx-auto pb-10 px-4'>
-      <div className='flex items-center gap-4 mb-6'>
-        <NavLink
-          to='/explore'
-          className='rounded-full bg-muted p-3 hover:bg-slate-200 transition-colors'
-        >
-          <ArrowLeft />
-        </NavLink>
-        <h1 className='text-2xl font-semibold'>Información del libro</h1>
-      </div>
-
-
-        {/* Sección derecha - Visor PDF */}
-        <div className='sticky top-4 h-fit'>
-          <div className='bg-white p-4 rounded-xl shadow-lg border'>
-            {pdfUrl ? (
-              <div className='relative'>
-                <Document
-                  file={pdfUrl}
-                  onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-                  loading={
-                    <div className='flex justify-center p-8'>
-                      <Loader2 className='animate-spin' />
-                    </div>
-                  }
-                >
-                  <Page
-                    pageNumber={1}
-                    renderAnnotationLayer={false}
-                    renderTextLayer={false}
-                    width={500}
-                  />
-
-                  {numPages && numPages > 1 && (
-                    <div className='mt-4 text-center text-sm text-gray-500'>
-                      Desplázate para ver más páginas
-                    </div>
-                  )}
-                </Document>
-              </div>
-            ) : (
-              <div className='flex flex-col items-center justify-center min-h-[300px] space-y-4'>
-                {pdfLoading ? (
-                  <>
-                    <Loader2 className='animate-spin w-8 h-8' />
-                    <p className='text-gray-500'>Cargando libro...</p>
-                  </>
-                ) : (
-                  <>
-                    <p className='text-gray-600 text-center mb-4'>
-                      Para ver el contenido del libro, haz clic en el botón inferior
-                    </p>
-                    <button
-                      onClick={cargarPDF}
-                      className='bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors'
-                    >
-                      Ver libro
-                    </button>
-                  </>
+    <section className="max-w-6xl mx-auto pb-10 px-4">
+      <div className="pdf-container">
+        {pdfUrl && (
+            <Document
+              file={pdfUrl}
+              onLoadSuccess={({ numPages }) => setCurrentPdfPages(numPages)}
+              loading={<div className="flex justify-center p-8"><FaSpinner className="animate-spin" /></div>}
+            >
+              <div className="pages-wrapper">
+                <div className="page-container">
+                  <Page pageNumber={2 * pageNumber - 1} />
+                </div>
+                {currentPdfPages >= 2 && (
+                  <div className="page-container">
+                    <Page pageNumber={2 * pageNumber} />
+                  </div>
                 )}
               </div>
-            )}
-          </div>
+            </Document>
+        )}
+        <div className="pagination">
+          <button
+              onClick={goToPrevPage}
+              disabled={pageNumber === 1}
+              className="pagination-button"
+          >
+            Anterior
+          </button>
+          <span>
+    Página {pageNumber} de {virtualPages || 1}
+  </span>
+          <button
+              onClick={goToNextPage}
+              disabled={pageNumber >= virtualPages || virtualPages === 0}
+              className="pagination-button"
+          >
+            Siguiente
+          </button>
         </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default BookDetail
+export default LectorPDF;

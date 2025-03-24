@@ -33,7 +33,7 @@ async def obtener_libros_paginados(
         limit: int = 50,
         current_user: dict = Depends(get_current_user)
 ):
-    return LibroController.get_libros_paginados(page, limit)
+    return LibroController.get_libros_paginados(page, limit, db=None, id_usuario=current_user["id"])
 
 
 @router.get("/{id_libro}", tags=["Libros"])
