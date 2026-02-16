@@ -1,6 +1,6 @@
 # UpBib - Biblioteca Digital para la UPB
 
-**UpBib** es una biblioteca digital para la Universidad Privada de Bolivia (UPB) que permite a los estudiantes acceder a libros digitales sin permitir descargas ilegales. El sistema gestiona préstamos con acceso temporal a los libros, revocando automáticamente el acceso cuando expire el préstamo. Además, permite a los usuarios visualizar los libros en línea y gestionar su librero personal.
+**UpBib** es una biblioteca digital para la Universidad Privada Boliviana (UPB) que permite a los estudiantes acceder a libros digitales sin permitir descargas ilegales. El sistema gestiona préstamos con acceso temporal a los libros, revocando automáticamente el acceso cuando expire el préstamo. Además, permite a los usuarios visualizar los libros en línea y gestionar su librero personal.
 
 ## Arquitectura
 
